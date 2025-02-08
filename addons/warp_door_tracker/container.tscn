@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://u1w63i2ggrxp"]
+
+[ext_resource type="Script" path="res://addons/warp_door_tracker/container.gd" id="1_hl14r"]
+
+[node name="WarpDoors" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hl14r")
+
+[node name="Label" type="RichTextLabel" parent="container"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Warp Door Settings[/b]"
+fit_content = true
+
+[node name="OptionButton" type="OptionButton" parent="container"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "Show no connections"
+popup/item_1/text = "Show all connections"
+popup/item_1/id = 1
+popup/item_2/text = "Show connections on selected door"
+popup/item_2/id = 2
+
+[node name="refresh" type="Button" parent="container"]
+layout_mode = 2
+text = "Refresh"
+
+[node name="HSeparator" type="HSeparator" parent="container"]
+layout_mode = 2
+
+[connection signal="item_selected" from="container/OptionButton" to="container" method="_option_changed"]
+[connection signal="pressed" from="container/refresh" to="container" method="_refresh"]

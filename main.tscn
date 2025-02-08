@@ -1,0 +1,3972 @@
+[gd_scene load_steps=181 format=3 uid="uid://cb02yxiojlmjl"]
+
+[ext_resource type="Script" path="res://scripts/menu/menu_script.gd" id="1_8pcci"]
+[ext_resource type="PackedScene" uid="uid://b8lhv6unruopp" path="res://scenes/game/menu_door.tscn" id="1_jawqs"]
+[ext_resource type="Script" path="res://scripts/map/map_helper.gd" id="1_m16e6"]
+[ext_resource type="PackedScene" uid="uid://buodyk8237l14" path="res://tiled/maps/map.tmx" id="1_usmcx"]
+[ext_resource type="Script" path="res://scripts/pause_menu/pause_menu.gd" id="2_dhfay"]
+[ext_resource type="Script" path="res://scripts/camera/game_camera.gd" id="2_uustn"]
+[ext_resource type="Script" path="res://scripts/save/game_loader.gd" id="2_yo2n1"]
+[ext_resource type="Script" path="res://scripts/ui/area_name_trigger.gd" id="3_0y7qx"]
+[ext_resource type="Texture2D" uid="uid://wo8jvtekened" path="res://images/objects/menu_door.png" id="3_dc2r0"]
+[ext_resource type="Script" path="res://scripts/objects/area/menu/quit_game_area.gd" id="4_qkjaf"]
+[ext_resource type="PackedScene" uid="uid://d2n5co5sxkqh1" path="res://scenes/game/checkpoint.tscn" id="4_ywbjr"]
+[ext_resource type="Texture2D" uid="uid://b3qk130kwl7x8" path="res://images/white.png" id="5_e42tl"]
+[ext_resource type="Script" path="res://scripts/menu/blocker.gd" id="5_gve3x"]
+[ext_resource type="PackedScene" uid="uid://bumlammd0u6dw" path="res://scenes/game/player.tscn" id="5_tt0wr"]
+[ext_resource type="Script" path="res://scripts/ui/area_name.gd" id="6_k6aad"]
+[ext_resource type="Script" path="res://scripts/objects/area/trigger_area.gd" id="7_2ad0w"]
+[ext_resource type="PackedScene" uid="uid://bj30am6p2m87q" path="res://scenes/game/collectable.tscn" id="7_mx21e"]
+[ext_resource type="Script" path="res://scripts/objects/area/area_method.gd" id="8_dyivc"]
+[ext_resource type="PackedScene" uid="uid://c3dyekts4m1l" path="res://death_orb.tscn" id="8_rfdk1"]
+[ext_resource type="Script" path="res://scripts/objects/area/objects/move_death_orb.gd" id="9_qdhkb"]
+[ext_resource type="Script" path="res://scripts/objects/area/objects/death_orb_status.gd" id="10_bqkjg"]
+[ext_resource type="Script" path="res://scripts/objects/area/objects/cycle_timer_area.gd" id="11_5dynm"]
+[ext_resource type="Script" path="res://scripts/objects/warp_door/warp_door_manager.gd" id="11_suls4"]
+[ext_resource type="PackedScene" uid="uid://c1hq2lvs5gfv6" path="res://scenes/game/warp_door.tscn" id="12_pux87"]
+[ext_resource type="Texture2D" uid="uid://bsg6k73w6o1vl" path="res://images/objects/collectables/purple_orb.png" id="15_iexr4"]
+[ext_resource type="Texture2D" uid="uid://crjldwe11lugm" path="res://images/objects/collectables/warp_orb.png" id="16_sp0x2"]
+[ext_resource type="Script" path="res://scripts/map/cycle_timer.gd" id="17_8w0ap"]
+[ext_resource type="Texture2D" uid="uid://da8fvhcemokkv" path="res://images/objects/collectables/pink_orb.png" id="17_jpsn1"]
+[ext_resource type="Texture2D" uid="uid://cgrtsbcqlcxed" path="res://images/objects/collectables/yellow_orb.png" id="18_en0ds"]
+[ext_resource type="Texture2D" uid="uid://cy1ctukrm65ji" path="res://images/objects/collectables/double_jump.png" id="19_np0pf"]
+[ext_resource type="Texture2D" uid="uid://cx84iul4meojd" path="res://images/objects/collectables/blue_orb.png" id="20_ch061"]
+[ext_resource type="Texture2D" uid="uid://dd6rirmsi20x7" path="res://images/objects/collectables/wall_jump.png" id="21_6ge8a"]
+[ext_resource type="Texture2D" uid="uid://dxsv23gl4nfry" path="res://images/objects/collectables/gravity_orb.png" id="22_sssds"]
+[ext_resource type="Texture2D" uid="uid://dv15q5cqryba5" path="res://images/objects/collectables/key.png" id="23_1lq1j"]
+[ext_resource type="Script" path="res://scripts/win_handler/win_area.gd" id="28_yvygb"]
+[ext_resource type="Script" path="res://scripts/win_handler/timer.gd" id="33_vl5ma"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h7q5d"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_hm13r"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_db8a7"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_u7i7p"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_j6ggb"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_hkhsg"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_lchsh"]
+font_size = 24
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebcyl"]
+size = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pww22"]
+size = Vector2(7228, 3897)
+
+[sub_resource type="Resource" id="Resource_mgu4i"]
+script = ExtResource("4_qkjaf")
+delay = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e513e"]
+size = Vector2(171, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdd5q"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4yr5"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7u3s"]
+size = Vector2(64, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4tgsn"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_2uv5b"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_k837h"]
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f74bi"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_mn8a3"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_37a6g"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwogi"]
+font_size = 52
+
+[sub_resource type="LabelSettings" id="LabelSettings_lmwrn"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_1qpxc"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_3muav"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_cs32v"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_cb6o2"]
+font_size = 24
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb3b8"]
+size = Vector2(2860, 2277)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibvn3"]
+size = Vector2(2364, 1722.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7yqu"]
+size = Vector2(1563, 1140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoi18"]
+size = Vector2(1819, 3157)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipnwp"]
+size = Vector2(561, 1221)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1vh7"]
+size = Vector2(1466, 947)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcxix"]
+size = Vector2(362, 947)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piy60"]
+size = Vector2(3980, 1183)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apbpy"]
+size = Vector2(920.5, 1466)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i328i"]
+size = Vector2(1875, 3649)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x584i"]
+size = Vector2(2250, 700)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrc58"]
+size = Vector2(3669, 1853)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1bxc"]
+size = Vector2(2583, 1116.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vllep"]
+size = Vector2(2302, 457)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq2gn"]
+size = Vector2(1650, 1055)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgqqs"]
+size = Vector2(902, 395)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hmo6"]
+size = Vector2(957, 573)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4137u"]
+size = Vector2(936, 1572)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkbq6"]
+size = Vector2(1019, 4333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcb7m"]
+size = Vector2(2959, 1380)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l12cx"]
+size = Vector2(878, 254)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukpcy"]
+size = Vector2(3836, 335)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2472"]
+size = Vector2(5320, 402)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oot1f"]
+size = Vector2(5320, 420)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_564wg"]
+size = Vector2(9182, 420)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jlf8"]
+size = Vector2(688, 3370)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2s0v"]
+size = Vector2(580, 359)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aevmx"]
+size = Vector2(1251, 1073)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qps2m"]
+size = Vector2(784, 1073)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfotn"]
+size = Vector2(4265, 1489.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u52v4"]
+size = Vector2(4378.5, 1256.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoog7"]
+size = Vector2(1697, 804)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yitjs"]
+size = Vector2(9566, 560)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1cgf3"]
+size = Vector2(1886, 1107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3w10"]
+size = Vector2(2294, 2089)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfufs"]
+size = Vector2(2092, 238)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06q7i"]
+size = Vector2(325, 5457)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls3j4"]
+size = Vector2(1408, 1769)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyqay"]
+size = Vector2(2601.5, 2195.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmiu4"]
+size = Vector2(1485.75, 737.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfgj8"]
+size = Vector2(1121.88, 160.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqfbt"]
+size = Vector2(376, 4120.44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqlpg"]
+size = Vector2(442, 1492.22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipgs0"]
+size = Vector2(779, 699)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynlqj"]
+size = Vector2(764, 748.219)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_la3gw"]
+size = Vector2(3232, 1678.11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqtk4"]
+size = Vector2(1990, 1678.11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j81ob"]
+size = Vector2(1725, 1678.11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4nkk"]
+size = Vector2(527, 732.891)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2ifr"]
+size = Vector2(7091, 732.891)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4swf2"]
+size = Vector2(1110.5, 6615.45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmykq"]
+size = Vector2(3427, 7844)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bv6t"]
+size = Vector2(4079, 2518)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32nl6"]
+size = Vector2(7564, 7077)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs8xb"]
+size = Vector2(1192, 631.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3wjf"]
+size = Vector2(3651, 817.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j8hu"]
+size = Vector2(542, 2649.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe8p5"]
+size = Vector2(738, 544)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7hc0"]
+size = Vector2(3810, 713)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdqgh"]
+size = Vector2(3030, 1104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh2tx"]
+size = Vector2(2776, 409)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwf1q"]
+size = Vector2(2901, 867)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvgko"]
+size = Vector2(664.5, 3252.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eol8"]
+size = Vector2(575.25, 2369.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaguk"]
+size = Vector2(448.625, 2108.62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dorge"]
+size = Vector2(527.25, 996.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob54b"]
+size = Vector2(1397.25, 2079.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24d66"]
+size = Vector2(1261, 1890)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtlwf"]
+size = Vector2(6120, 1143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ognyf"]
+size = Vector2(1247, 5531)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wob43"]
+size = Vector2(1041.5, 5531)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr26i"]
+size = Vector2(2248.75, 1524.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqg35"]
+size = Vector2(465, 181)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emga1"]
+size = Vector2(2695, 2774)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfc88"]
+size = Vector2(6163.5, 1026)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6d1cn"]
+size = Vector2(2494, 998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7hej"]
+size = Vector2(1072, 2956)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ea8of"]
+size = Vector2(337, 6880)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhsso"]
+size = Vector2(298.5, 8459)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10iy0"]
+size = Vector2(298.5, 8459)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_laawr"]
+size = Vector2(525, 328.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cceva"]
+size = Vector2(1881.5, 251.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlynk"]
+size = Vector2(274.75, 13187.6)
+
+[sub_resource type="Resource" id="Resource_dcmjj"]
+script = ExtResource("10_bqkjg")
+death_orb_to_move = NodePath("../death orb")
+enabled = true
+disable_on_exit = true
+speed = -1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6c0x"]
+size = Vector2(6366, 1488)
+
+[sub_resource type="Resource" id="Resource_lagoe"]
+script = ExtResource("10_bqkjg")
+death_orb_to_move = NodePath("../death orb")
+enabled = true
+disable_on_exit = true
+speed = -1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdop1"]
+size = Vector2(3504, 857)
+
+[sub_resource type="Resource" id="Resource_3eqdv"]
+script = ExtResource("9_qdhkb")
+death_orb_to_move = NodePath("../../../obstacles/chase")
+index = 0
+
+[sub_resource type="Resource" id="Resource_fv6gd"]
+script = ExtResource("10_bqkjg")
+death_orb_to_move = NodePath("../../../obstacles/chase")
+enabled = true
+disable_on_exit = false
+speed = -1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bldut"]
+size = Vector2(54, 286)
+
+[sub_resource type="Resource" id="Resource_61cff"]
+script = ExtResource("10_bqkjg")
+death_orb_to_move = NodePath("../../../obstacles/chase")
+enabled = false
+disable_on_exit = false
+speed = -1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3heq"]
+size = Vector2(147, 123)
+
+[sub_resource type="Resource" id="Resource_3osaw"]
+script = ExtResource("11_5dynm")
+cycle_timer = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p5hu"]
+size = Vector2(6062, 1094)
+
+[sub_resource type="Resource" id="Resource_dwbf4"]
+script = ExtResource("11_5dynm")
+cycle_timer = 0.75
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l5xh"]
+size = Vector2(1224, 5522)
+
+[sub_resource type="Resource" id="Resource_fuv53"]
+script = ExtResource("11_5dynm")
+cycle_timer = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q326j"]
+size = Vector2(1049, 5518)
+
+[sub_resource type="Resource" id="Resource_xolcx"]
+script = ExtResource("11_5dynm")
+cycle_timer = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46vwl"]
+size = Vector2(2232.5, 1196)
+
+[sub_resource type="Resource" id="Resource_gowkk"]
+script = ExtResource("11_5dynm")
+cycle_timer = 0.9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqwsr"]
+size = Vector2(2674, 2846)
+
+[sub_resource type="Resource" id="Resource_6hvqb"]
+script = ExtResource("9_qdhkb")
+death_orb_to_move = NodePath("../../../obstacles/trial 1")
+index = 0
+
+[sub_resource type="Resource" id="Resource_5qqy1"]
+script = ExtResource("10_bqkjg")
+death_orb_to_move = NodePath("../../../obstacles/trial 1")
+enabled = false
+disable_on_exit = false
+speed = -1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sfi8"]
+size = Vector2(61, 117)
+
+[sub_resource type="Resource" id="Resource_saswf"]
+script = ExtResource("10_bqkjg")
+death_orb_to_move = NodePath("../../../obstacles/trial 1")
+enabled = true
+disable_on_exit = false
+speed = 350.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4ho"]
+size = Vector2(35, 346)
+
+[sub_resource type="Resource" id="Resource_k72i5"]
+script = ExtResource("10_bqkjg")
+death_orb_to_move = NodePath("../../../obstacles/trial 1")
+enabled = true
+disable_on_exit = false
+speed = 250.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2igw"]
+size = Vector2(687, 900)
+
+[sub_resource type="Resource" id="Resource_g11r8"]
+script = ExtResource("10_bqkjg")
+death_orb_to_move = NodePath("../../../obstacles/trial 1")
+enabled = false
+disable_on_exit = false
+speed = -1.0
+
+[sub_resource type="Resource" id="Resource_6o3ig"]
+script = ExtResource("11_5dynm")
+cycle_timer = 1.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idbrr"]
+size = Vector2(500, 500)
+
+[sub_resource type="Resource" id="Resource_rjn4x"]
+script = ExtResource("10_bqkjg")
+death_orb_to_move = NodePath("../../../obstacles/trial 2/speed 1/group/death orb")
+enabled = true
+disable_on_exit = true
+speed = -1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66ps7"]
+size = Vector2(7557, 7147)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2xflx"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_w2twl"]
+font_size = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow4da"]
+size = Vector2(48, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iv2ji"]
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="main" type="Node2D"]
+
+[node name="menu" type="Node2D" parent="." node_paths=PackedStringArray("area_reference", "load_game_block", "start_game_area")]
+script = ExtResource("1_8pcci")
+area_reference = NodePath("areas/refresh area")
+load_game_block = NodePath("objects/saved game blocker")
+start_game_area = NodePath("areas/start game area")
+
+[node name="text" type="Node2D" parent="menu"]
+
+[node name="main" type="Node2D" parent="menu/text"]
+
+[node name="header" type="Label" parent="menu/text/main"]
+offset_left = -7279.0
+offset_top = -10242.0
+offset_right = -6791.0
+offset_bottom = -10185.0
+text = "It's All Here"
+label_settings = SubResource("LabelSettings_h7q5d")
+
+[node name="start" type="Label" parent="menu/text/main"]
+offset_left = -7461.0
+offset_top = -10044.0
+offset_right = -7363.0
+offset_bottom = -10011.0
+text = " Start"
+label_settings = SubResource("LabelSettings_hm13r")
+
+[node name="quit" type="Label" parent="menu/text/main"]
+offset_left = -6631.0
+offset_top = -10044.0
+offset_right = -6547.0
+offset_bottom = -10011.0
+text = " Quit"
+label_settings = SubResource("LabelSettings_hm13r")
+
+[node name="quit" type="Node2D" parent="menu/text"]
+
+[node name="header" type="Label" parent="menu/text/quit"]
+offset_left = -6034.0
+offset_top = -10283.0
+offset_right = -5734.0
+offset_bottom = -10222.0
+text = "Are you sure you
+want to quit?"
+label_settings = SubResource("LabelSettings_db8a7")
+horizontal_alignment = 1
+
+[node name="content" type="Label" parent="menu/text/quit"]
+offset_left = -5960.0
+offset_top = -10039.0
+offset_right = -5735.0
+offset_bottom = -10006.0
+text = " Yes      No  "
+label_settings = SubResource("LabelSettings_u7i7p")
+
+[node name="start" type="Node2D" parent="menu/text"]
+
+[node name="header" type="Label" parent="menu/text/start"]
+offset_left = -5067.0
+offset_top = -10136.0
+offset_right = -4617.0
+offset_bottom = -10042.0
+text = " Back 
+
+ Saved Game         New Game  "
+label_settings = SubResource("LabelSettings_j6ggb")
+horizontal_alignment = 1
+
+[node name="game_type" type="Node2D" parent="menu/text"]
+
+[node name="Label" type="Label" parent="menu/text/game_type"]
+offset_left = -3945.0
+offset_top = -10090.0
+offset_right = -3622.0
+offset_bottom = -10068.0
+text = "Select your difficulity"
+label_settings = SubResource("LabelSettings_hkhsg")
+
+[node name="normal description" type="Label" parent="menu/text/game_type"]
+offset_left = -3584.0
+offset_top = -10048.0
+offset_right = -3162.0
+offset_bottom = -9976.0
+text = "NORMAL →
+The standard game.
+Rules are a little less strict"
+label_settings = SubResource("LabelSettings_hkhsg")
+
+[node name="hard description" type="Label" parent="menu/text/game_type"]
+offset_left = -3586.0
+offset_top = -10304.0
+offset_right = -3009.0
+offset_bottom = -10207.0
+text = "HARD →
+The standard game as 
+    originally intended.
+Rules are very strict"
+label_settings = SubResource("LabelSettings_hkhsg")
+
+[node name="back" type="Label" parent="menu/text/game_type"]
+offset_left = -4151.0
+offset_top = -10013.0
+offset_right = -3828.0
+offset_bottom = -9991.0
+text = "↓ Back"
+label_settings = SubResource("LabelSettings_hkhsg")
+
+[node name="pause menu" type="Node2D" parent="menu/text" node_paths=PackedStringArray("place_player_location", "menu_location")]
+script = ExtResource("2_dhfay")
+place_player_location = NodePath("pause menu location")
+menu_location = NodePath("../../spawn/main")
+
+[node name="header" type="Label" parent="menu/text/pause menu"]
+offset_left = -7499.0
+offset_top = -9459.0
+offset_right = -7344.0
+offset_bottom = -9437.0
+text = "Game Paused"
+label_settings = SubResource("LabelSettings_lchsh")
+
+[node name="options" type="Label" parent="menu/text/pause menu"]
+offset_left = -7587.0
+offset_top = -9302.0
+offset_right = -7278.0
+offset_bottom = -9280.0
+text = "← Resume        Quit →"
+label_settings = SubResource("LabelSettings_lchsh")
+
+[node name="pause menu location" type="Node2D" parent="menu/text/pause menu"]
+position = Vector2(-7423, -9287)
+
+[node name="resume" type="Area2D" parent="menu/text/pause menu"]
+position = Vector2(-7648, -9280)
+collision_layer = 4
+collision_mask = 2
+
+[node name="shape" type="CollisionShape2D" parent="menu/text/pause menu/resume"]
+shape = SubResource("RectangleShape2D_ebcyl")
+
+[node name="sprite" type="Sprite2D" parent="menu/text/pause menu/resume"]
+modulate = Color(0, 1, 0.537255, 1)
+scale = Vector2(4, 4)
+texture = ExtResource("3_dc2r0")
+
+[node name="quit" type="Area2D" parent="menu/text/pause menu"]
+position = Vector2(-7200, -9280)
+collision_layer = 4
+collision_mask = 2
+
+[node name="shape" type="CollisionShape2D" parent="menu/text/pause menu/quit"]
+shape = SubResource("RectangleShape2D_ebcyl")
+
+[node name="sprite" type="Sprite2D" parent="menu/text/pause menu/quit"]
+modulate = Color(1, 0.172549, 0.317647, 1)
+scale = Vector2(4, 4)
+texture = ExtResource("3_dc2r0")
+
+[node name="doors" type="Node2D" parent="menu"]
+
+[node name="menu > quit" parent="menu/doors" node_paths=PackedStringArray("teleport_to") instance=ExtResource("1_jawqs")]
+position = Vector2(-6624, -9664)
+teleport_to = NodePath("../../spawn/quit")
+door_color = Color(1, 0, 0, 1)
+
+[node name="quit > menu" parent="menu/doors" node_paths=PackedStringArray("teleport_to") instance=ExtResource("1_jawqs")]
+position = Vector2(-5664, -9984)
+teleport_to = NodePath("../../spawn/main")
+door_color = Color(0.443137, 1, 0.462745, 1)
+
+[node name="menu > start" parent="menu/doors" node_paths=PackedStringArray("teleport_to") instance=ExtResource("1_jawqs")]
+position = Vector2(-7456, -9664)
+teleport_to = NodePath("../../spawn/start")
+door_color = Color(0.458824, 1, 0, 1)
+
+[node name="start > menu" parent="menu/doors" node_paths=PackedStringArray("teleport_to") instance=ExtResource("1_jawqs")]
+position = Vector2(-4833, -10240)
+teleport_to = NodePath("../../spawn/main")
+door_color = Color(1, 0, 1, 1)
+
+[node name="start > start game" parent="menu/doors" instance=ExtResource("1_jawqs")]
+position = Vector2(-5280, -9664)
+door_color = Color(1, 1, 0, 1)
+
+[node name="new game" parent="menu/doors" node_paths=PackedStringArray("teleport_to") instance=ExtResource("1_jawqs")]
+position = Vector2(-2976, -9920)
+teleport_to = NodePath("../../spawn/new game")
+
+[node name="game type > start" parent="menu/doors" node_paths=PackedStringArray("teleport_to") instance=ExtResource("1_jawqs")]
+position = Vector2(-4128, -9920)
+teleport_to = NodePath("../../spawn/start")
+door_color = Color(1, 0, 0.509804, 1)
+
+[node name="start > game type" parent="menu/doors" node_paths=PackedStringArray("teleport_to") instance=ExtResource("1_jawqs")]
+position = Vector2(-4384, -9664)
+teleport_to = NodePath("../../spawn/game type")
+door_color = Color(0, 1, 1, 1)
+
+[node name="spawn" type="Node2D" parent="menu"]
+
+[node name="quit" type="Node2D" parent="menu/spawn"]
+position = Vector2(-5846, -9995)
+
+[node name="main" type="Node2D" parent="menu/spawn"]
+position = Vector2(-7040, -9989)
+
+[node name="start" type="Node2D" parent="menu/spawn"]
+position = Vector2(-4840, -10055)
+
+[node name="new game" type="Node2D" parent="menu/spawn"]
+position = Vector2(-1408, -1816)
+
+[node name="game type" type="Node2D" parent="menu/spawn"]
+position = Vector2(-3898, -9920)
+
+[node name="areas" type="Node2D" parent="menu"]
+
+[node name="refresh area" type="Area2D" parent="menu/areas"]
+position = Vector2(-7793, -10417)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/areas/refresh area"]
+position = Vector2(3604, 1938.5)
+shape = SubResource("RectangleShape2D_pww22")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="quit" type="Area2D" parent="menu/areas"]
+position = Vector2(-6063, -9046)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_mgu4i")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/areas/quit"]
+position = Vector2(-21.5, 73.5)
+shape = SubResource("RectangleShape2D_e513e")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="start game area" type="Area2D" parent="menu/areas"]
+position = Vector2(-5280, -9632)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/areas/start game area"]
+shape = SubResource("RectangleShape2D_cdd5q")
+
+[node name="hard items" type="Area2D" parent="menu/areas"]
+position = Vector2(-2976, -10044)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/areas/hard items"]
+shape = SubResource("RectangleShape2D_f4yr5")
+
+[node name="objects" type="Node2D" parent="menu"]
+
+[node name="saved game blocker" type="StaticBody2D" parent="menu/objects"]
+position = Vector2(-5280, -10016)
+script = ExtResource("5_gve3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/objects/saved game blocker"]
+shape = SubResource("RectangleShape2D_q7u3s")
+
+[node name="Sprite2D" type="Sprite2D" parent="menu/objects/saved game blocker"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_e42tl")
+
+[node name="map" parent="." instance=ExtResource("1_usmcx")]
+
+[node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+script = ExtResource("2_uustn")
+
+[node name="texts" type="Node2D" parent="."]
+
+[node name="tutorial - introduction" type="Node2D" parent="texts"]
+
+[node name="text" type="Label" parent="texts/tutorial - introduction"]
+offset_left = 74.0
+offset_top = -2050.0
+offset_right = 562.0
+offset_bottom = -1993.0
+text = "It's all here
+"
+label_settings = SubResource("LabelSettings_4tgsn")
+
+[node name="text2" type="Label" parent="texts/tutorial - introduction"]
+offset_left = 3050.0
+offset_top = -2074.0
+offset_right = 3538.0
+offset_bottom = -2017.0
+text = "All of it."
+label_settings = SubResource("LabelSettings_4tgsn")
+
+[node name="text3" type="Label" parent="texts/tutorial - introduction"]
+offset_left = 5399.0
+offset_top = -1868.0
+offset_right = 5999.0
+offset_bottom = -1811.0
+text = "The entire game."
+label_settings = SubResource("LabelSettings_4tgsn")
+
+[node name="Label" type="Label" parent="texts/tutorial - introduction"]
+offset_left = 8343.0
+offset_top = -1952.0
+offset_right = 8587.0
+offset_bottom = -1937.0
+text = "Hold [JUMP] to jump higher"
+
+[node name="text4" type="Label" parent="texts"]
+offset_left = 15294.0
+offset_top = -1943.0
+offset_right = 15894.0
+offset_bottom = -1886.0
+text = "Almost there!"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text14" type="Label" parent="texts"]
+offset_left = 12835.0
+offset_top = 61.0
+offset_right = 13435.0
+offset_bottom = 118.0
+text = "OH NO! You broke your legs.
+If you fall too hard, you die"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text6" type="Label" parent="texts"]
+offset_left = 15281.0
+offset_top = -910.0
+offset_right = 15881.0
+offset_bottom = -853.0
+text = "Don't Fall.
+(You'll Die)"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text5" type="Label" parent="texts"]
+offset_left = 15266.0
+offset_top = -3203.0
+offset_right = 15866.0
+offset_bottom = -3146.0
+text = "You did it!"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text8" type="Label" parent="texts"]
+offset_left = 17499.0
+offset_top = -3223.0
+offset_right = 18137.0
+offset_bottom = -3166.0
+text = "Spikes are pointy"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text7" type="Label" parent="texts"]
+offset_left = 14037.0
+offset_top = 2.0
+offset_right = 14637.0
+offset_bottom = 63.0
+text = "This is a checkpoint.
+(it also saves your progress)"
+label_settings = SubResource("LabelSettings_2uv5b")
+horizontal_alignment = 1
+
+[node name="text9" type="Label" parent="texts"]
+offset_left = 20844.0
+offset_top = -2489.0
+offset_right = 21557.0
+offset_bottom = -2432.0
+text = "Ha! You're Trapped!"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text10" type="Label" parent="texts"]
+offset_left = 23491.0
+offset_top = -4800.0
+offset_right = 24466.0
+offset_bottom = -4743.0
+text = "Let me tell you a story..."
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text11" type="Label" parent="texts"]
+offset_left = 25663.0
+offset_top = -4811.0
+offset_right = 26938.0
+offset_bottom = -4754.0
+text = "The story of a Thousand-Year Door."
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text12" type="Label" parent="texts"]
+offset_left = 32136.0
+offset_top = -3988.0
+offset_right = 33411.0
+offset_bottom = -3931.0
+text = "Purple Orb
+
+Makes purple blocks opaque"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text13" type="Label" parent="texts"]
+offset_left = 33998.0
+offset_top = -2794.0
+offset_right = 35273.0
+offset_bottom = -2701.0
+text = "← Down
+Up →"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text15" type="Label" parent="texts"]
+offset_left = 32910.0
+offset_top = 1084.0
+offset_right = 34185.0
+offset_bottom = 1177.0
+text = "← Right
+No →"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text16" type="Label" parent="texts"]
+offset_left = 21331.0
+offset_top = -1077.0
+offset_right = 22606.0
+offset_bottom = -984.0
+text = "Warp Orb
+
+Activates WARP PORTALS"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text17" type="Label" parent="texts"]
+offset_left = 20640.0
+offset_top = -864.0
+offset_right = 21915.0
+offset_bottom = -771.0
+text = "Out     In"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text18" type="Label" parent="texts"]
+offset_left = 6936.0
+offset_top = 6087.0
+offset_right = 8211.0
+offset_bottom = 6180.0
+text = "Welcome to the World between Worlds!"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="Danger text" type="Label" parent="texts"]
+offset_left = 9447.0
+offset_top = 6274.0
+offset_right = 10722.0
+offset_bottom = 6367.0
+text = "DANGER!"
+label_settings = SubResource("LabelSettings_k837h")
+horizontal_alignment = 1
+
+[node name="text19" type="Label" parent="texts"]
+offset_left = 43769.0
+offset_top = -366.0
+offset_right = 45044.0
+offset_bottom = -273.0
+text = "Hard ↑
+
+Easy →"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text26" type="Label" parent="texts"]
+offset_left = 43598.0
+offset_top = -259.0
+offset_right = 44873.0
+offset_bottom = -166.0
+text = "← Progression
+(but hard)"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text20" type="Label" parent="texts"]
+offset_left = 43066.0
+offset_top = -478.0
+offset_right = 44341.0
+offset_bottom = -385.0
+text = "Pink Orb
+
+Activates PINK blocks"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text21" type="Label" parent="texts"]
+offset_left = 38208.0
+offset_top = 277.0
+offset_right = 39483.0
+offset_bottom = 370.0
+text = "You probably want to go left first..."
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text22" type="Label" parent="texts"]
+offset_left = 39971.0
+offset_top = -55.0
+offset_right = 41246.0
+offset_bottom = 38.0
+text = "Like seriously"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text23" type="Label" parent="texts"]
+offset_left = 40786.0
+offset_top = -107.0
+offset_right = 42061.0
+offset_bottom = -14.0
+text = "LAST CHANGE TO TURN BACK"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text24" type="Label" parent="texts"]
+offset_left = 42014.0
+offset_top = -364.0
+offset_right = 43289.0
+offset_bottom = -271.0
+text = "OK fine"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text25" type="Label" parent="texts"]
+offset_left = 42495.0
+offset_top = -1273.0
+offset_right = 43770.0
+offset_bottom = -1180.0
+text = "I told you..."
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="fall arrows" type="Label" parent="texts"]
+offset_left = 16593.0
+offset_top = -1807.0
+offset_right = 16633.0
+offset_bottom = -1672.0
+text = "←
+←
+←
+←
+←
+←
+←
+←
+
+
+
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+
+
+
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+
+
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓"
+label_settings = SubResource("LabelSettings_f74bi")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="texts"]
+offset_left = 22747.0
+offset_top = 2695.0
+offset_right = 23098.0
+offset_bottom = 2742.0
+text = "Yellow Orb
+You know the drill by now"
+label_settings = SubResource("LabelSettings_mn8a3")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="texts"]
+offset_left = 37923.0
+offset_top = -1816.0
+offset_right = 38274.0
+offset_bottom = -1769.0
+text = "?????"
+label_settings = SubResource("LabelSettings_mn8a3")
+horizontal_alignment = 1
+
+[node name="double jump" type="Node2D" parent="texts"]
+
+[node name="Label" type="Label" parent="texts/double jump"]
+offset_left = 7653.0
+offset_top = -4114.0
+offset_right = 8347.0
+offset_bottom = -4021.0
+text = "Double Jump
+
+Press [Jump] in the air to jump again"
+label_settings = SubResource("LabelSettings_37a6g")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="texts/double jump"]
+offset_left = 6612.0
+offset_top = -4455.0
+offset_right = 7306.0
+offset_bottom = -4362.0
+text = "Double jump just before landing to
+not die of fall damage"
+label_settings = SubResource("LabelSettings_37a6g")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="texts/double jump"]
+offset_left = 5640.0
+offset_top = -3889.0
+offset_right = 6334.0
+offset_bottom = -3796.0
+text = "Go here
+↓"
+label_settings = SubResource("LabelSettings_37a6g")
+horizontal_alignment = 1
+
+[node name="fall" type="Label" parent="texts"]
+offset_left = 35163.0
+offset_top = -6862.0
+offset_right = 35501.0
+offset_bottom = -6473.0
+text = "
+
+    ! 
+    ! 
+    ! 
+    ! 
+    ! 
+    !
+
+
+ !!!!!!!
+ !!!!!!!
+ !!!!!!!
+ !!!!!!!
+ !!!!!!!
+ !!!!!!!
+ !!!!!!!
+
+
+
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+
+
+
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+
+
+
+
+
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+    ↓"
+label_settings = SubResource("LabelSettings_kwogi")
+
+[node name="2 thousand year door" type="Node2D" parent="texts"]
+
+[node name="Label" type="Label" parent="texts/2 thousand year door"]
+offset_left = 28423.0
+offset_top = -5098.0
+offset_right = 29211.0
+offset_bottom = -5041.0
+text = "Such a cool, old door, am I right?"
+label_settings = SubResource("LabelSettings_lmwrn")
+
+[node name="Label2" type="Label" parent="texts/2 thousand year door"]
+offset_left = 30228.0
+offset_top = -5089.0
+offset_right = 31016.0
+offset_bottom = -5032.0
+text = "But,it pales when compared to.............................................................The Ten Thousand-Year door."
+label_settings = SubResource("LabelSettings_lmwrn")
+
+[node name="Label3" type="Label" parent="texts"]
+offset_left = 12954.0
+offset_top = -2308.0
+offset_right = 13197.0
+offset_bottom = -2247.0
+text = "Get ->
+Don't Fall \\/"
+label_settings = SubResource("LabelSettings_1qpxc")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="texts"]
+offset_left = 21909.0
+offset_top = -9181.0
+offset_right = 22345.0
+offset_bottom = -9109.0
+text = "ACME Gravity Orb
+
+Green blocks and funny flights!"
+label_settings = SubResource("LabelSettings_3muav")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="texts"]
+offset_left = 36917.0
+offset_top = -8588.0
+offset_right = 37241.0
+offset_bottom = -8541.0
+text = "Key
+Unlocks a very old door"
+label_settings = SubResource("LabelSettings_cs32v")
+horizontal_alignment = 1
+
+[node name="jumping tutorial" type="Node2D" parent="texts"]
+
+[node name="Label6" type="Label" parent="texts/jumping tutorial"]
+offset_left = 24037.0
+offset_top = -3418.0
+offset_right = 24360.0
+offset_bottom = -3396.0
+text = "You can't fall off this"
+label_settings = SubResource("LabelSettings_cb6o2")
+
+[node name="Label7" type="Label" parent="texts/jumping tutorial"]
+offset_left = 24357.0
+offset_top = -3362.0
+offset_right = 24573.0
+offset_bottom = -3340.0
+text = "But this is OK"
+label_settings = SubResource("LabelSettings_cb6o2")
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="texts/jumping tutorial"]
+offset_left = 24314.0
+offset_top = -3307.0
+offset_right = 24652.0
+offset_bottom = -3285.0
+text = "You can't jump this high"
+label_settings = SubResource("LabelSettings_cb6o2")
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="texts/jumping tutorial"]
+offset_left = 24542.0
+offset_top = -3241.0
+offset_right = 24908.0
+offset_bottom = -3219.0
+text = "But you can jump this high"
+label_settings = SubResource("LabelSettings_cb6o2")
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="texts/jumping tutorial"]
+offset_left = 25187.0
+offset_top = -3252.0
+offset_right = 25890.0
+offset_bottom = -3130.0
+text = "If you are doing the \"Easy\" version, 
+    you can survive after jumping off a high ledge
+
+However, if you are doing the \"Hard\" version,
+    you will die if you jump of a high ledge."
+label_settings = SubResource("LabelSettings_cb6o2")
+
+[node name="area name triggers" type="Node2D" parent="."]
+
+[node name="tutorial" type="Node2D" parent="area name triggers"]
+
+[node name="Jumping 101" type="Area2D" parent="area name triggers/tutorial"]
+position = Vector2(-1394, -1746)
+script = ExtResource("3_0y7qx")
+area_name = "Jumping 101"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/tutorial/Jumping 101"]
+position = Vector2(10194, -856.5)
+shape = SubResource("RectangleShape2D_jb3b8")
+debug_color = Color(0.877345, 0.000404106, 0.831885, 0)
+
+[node name="Jumping 102" type="Area2D" parent="area name triggers/tutorial"]
+position = Vector2(-1394, -1746)
+script = ExtResource("3_0y7qx")
+area_name = "Jumping 102"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/tutorial/Jumping 102"]
+position = Vector2(12822, -561.75)
+shape = SubResource("RectangleShape2D_ibvn3")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Deja Vu" type="Area2D" parent="area name triggers"]
+position = Vector2(12689, -71)
+script = ExtResource("3_0y7qx")
+area_name = "Deja Vu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Deja Vu"]
+position = Vector2(531.5, -320)
+shape = SubResource("RectangleShape2D_w7yqu")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Practice Makes Perfect" type="Area2D" parent="area name triggers"]
+script = ExtResource("3_0y7qx")
+area_name = "Practice Makes Perfect"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Practice Makes Perfect"]
+position = Vector2(15529.5, -1296.5)
+shape = SubResource("RectangleShape2D_uoi18")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Checking Knowledge" type="Area2D" parent="area name triggers"]
+position = Vector2(14121, 86)
+script = ExtResource("3_0y7qx")
+area_name = "Checking Knowledge"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Checking Knowledge"]
+position = Vector2(180.5, -445.5)
+shape = SubResource("RectangleShape2D_ipnwp")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Congratualations" type="Area2D" parent="area name triggers"]
+position = Vector2(15401, -3266)
+script = ExtResource("3_0y7qx")
+area_name = "Congratualations"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Congratualations"]
+position = Vector2(573, -242)
+shape = SubResource("RectangleShape2D_v1vh7")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Some Weird Blocks" type="Area2D" parent="area name triggers"]
+position = Vector2(15540, -2959)
+script = ExtResource("3_0y7qx")
+area_name = "Some Weird Blocks"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Some Weird Blocks"]
+position = Vector2(-619, -400)
+shape = SubResource("RectangleShape2D_gcxix")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="A Pointed Tutorial" type="Area2D" parent="area name triggers"]
+position = Vector2(17493, -3278)
+script = ExtResource("3_0y7qx")
+area_name = "A Pointed Tutorial"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/A Pointed Tutorial"]
+position = Vector2(1218, -116)
+shape = SubResource("RectangleShape2D_piy60")
+debug_color = Color(0, 0.623529, 0.72549, 0)
+
+[node name="No Escape" type="Area2D" parent="area name triggers"]
+position = Vector2(21347, -3429)
+script = ExtResource("3_0y7qx")
+area_name = "No Escape"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/No Escape"]
+position = Vector2(-78.25, -60)
+shape = SubResource("RectangleShape2D_apbpy")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Stepping Stones" type="Area2D" parent="area name triggers"]
+script = ExtResource("3_0y7qx")
+area_name = "Stepping Stones"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Stepping Stones"]
+position = Vector2(22791.5, -4467.5)
+shape = SubResource("RectangleShape2D_i328i")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Fall Damage" type="Area2D" parent="area name triggers"]
+script = ExtResource("3_0y7qx")
+area_name = "Fall Damage"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Fall Damage"]
+position = Vector2(22652, -2182)
+shape = SubResource("RectangleShape2D_x584i")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Obvious Video Game Reference" type="Area2D" parent="area name triggers"]
+script = ExtResource("3_0y7qx")
+area_name = "Obvious Video Game Reference"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Obvious Video Game Reference"]
+position = Vector2(25602.5, -5428.5)
+shape = SubResource("RectangleShape2D_jrc58")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="A Lesson on Limits" type="Area2D" parent="area name triggers"]
+position = Vector2(24904, -3247)
+script = ExtResource("3_0y7qx")
+area_name = "A Lesson on Limits"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/A Lesson on Limits"]
+position = Vector2(140.5, -329.75)
+shape = SubResource("RectangleShape2D_g1bxc")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Cycles" type="Area2D" parent="area name triggers"]
+script = ExtResource("3_0y7qx")
+area_name = "Cycles"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Cycles"]
+position = Vector2(28801, -3132.5)
+shape = SubResource("RectangleShape2D_vllep")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Cycles but Complicated" type="Area2D" parent="area name triggers"]
+script = ExtResource("3_0y7qx")
+area_name = "Cycles but Complicated"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Cycles but Complicated"]
+position = Vector2(30809, -3467.5)
+shape = SubResource("RectangleShape2D_vq2gn")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Portal from Another World" type="Area2D" parent="area name triggers"]
+position = Vector2(30404, -4237)
+script = ExtResource("3_0y7qx")
+area_name = "Portal from Another World"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Portal from Another World"]
+position = Vector2(-26, -4.5)
+shape = SubResource("RectangleShape2D_wgqqs")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Mysterious Item" type="Area2D" parent="area name triggers"]
+position = Vector2(32735, -3956)
+script = ExtResource("3_0y7qx")
+area_name = "Mysterious Item"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Mysterious Item"]
+position = Vector2(1.5, 84.5)
+shape = SubResource("RectangleShape2D_2hmo6")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Don\'t fall too hard" type="Area2D" parent="area name triggers"]
+position = Vector2(34634, -3974)
+script = ExtResource("3_0y7qx")
+area_name = "Don't fall too hard"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Don\'t fall too hard"]
+position = Vector2(-9, 584)
+shape = SubResource("RectangleShape2D_4137u")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Long Drop" type="Area2D" parent="area name triggers"]
+position = Vector2(33669, -2775)
+script = ExtResource("3_0y7qx")
+area_name = "Long Drop"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Long Drop"]
+position = Vector2(-97.5, 1849.5)
+shape = SubResource("RectangleShape2D_bkbq6")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Right" type="Area2D" parent="area name triggers"]
+position = Vector2(30679, 1076)
+script = ExtResource("3_0y7qx")
+area_name = "Right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Right"]
+position = Vector2(872.5, 373)
+shape = SubResource("RectangleShape2D_fcb7m")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Ready for the fun?" type="Area2D" parent="area name triggers"]
+position = Vector2(29765, 1057)
+script = ExtResource("3_0y7qx")
+area_name = "Ready for the fun?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Ready for the fun?"]
+position = Vector2(-168, -190)
+shape = SubResource("RectangleShape2D_l12cx")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Run!" type="Area2D" parent="area name triggers"]
+position = Vector2(29765, 621)
+script = ExtResource("3_0y7qx")
+area_name = "Run!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Run!"]
+position = Vector2(1311, -149.5)
+shape = SubResource("RectangleShape2D_ukpcy")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Jump!" type="Area2D" parent="area name triggers"]
+position = Vector2(29765, 621)
+script = ExtResource("3_0y7qx")
+area_name = "Jump!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Jump!"]
+position = Vector2(590, -535)
+shape = SubResource("RectangleShape2D_k2472")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Geometry Dash!" type="Area2D" parent="area name triggers"]
+position = Vector2(29771, 189)
+script = ExtResource("3_0y7qx")
+area_name = "Geometry Dash!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Geometry Dash!"]
+position = Vector2(590, -526)
+shape = SubResource("RectangleShape2D_oot1f")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="You\'re almost there___" type="Area2D" parent="area name triggers"]
+position = Vector2(29774, -278)
+script = ExtResource("3_0y7qx")
+area_name = "You're almost there..."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/You\'re almost there___"]
+position = Vector2(-1341, -526)
+shape = SubResource("RectangleShape2D_564wg")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Down and back up" type="Area2D" parent="area name triggers"]
+position = Vector2(23565, 825)
+script = ExtResource("3_0y7qx")
+area_name = "Down and back up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Down and back up"]
+position = Vector2(-71, -447)
+shape = SubResource("RectangleShape2D_1jlf8")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Whew!" type="Area2D" parent="area name triggers"]
+position = Vector2(23565, 825)
+script = ExtResource("3_0y7qx")
+area_name = "Whew!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Whew!"]
+position = Vector2(-705, -1952.5)
+shape = SubResource("RectangleShape2D_i2s0v")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Knock Knock" type="Area2D" parent="area name triggers"]
+position = Vector2(22705, -1178)
+script = ExtResource("3_0y7qx")
+area_name = "Knock Knock"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Knock Knock"]
+position = Vector2(-772.5, -33.5)
+shape = SubResource("RectangleShape2D_aevmx")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Who\'s There?" type="Area2D" parent="area name triggers"]
+position = Vector2(22705, -1178)
+script = ExtResource("3_0y7qx")
+area_name = "Who's There?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Who\'s There?"]
+position = Vector2(-1819, -26)
+shape = SubResource("RectangleShape2D_qps2m")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="You were warned" type="Area2D" parent="area name triggers"]
+position = Vector2(36191, 1092)
+script = ExtResource("3_0y7qx")
+area_name = "You were warned"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/You were warned"]
+position = Vector2(-19.5, -204.25)
+shape = SubResource("RectangleShape2D_pfotn")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Danger Zone" type="Area2D" parent="area name triggers"]
+position = Vector2(36191, 1092)
+script = ExtResource("3_0y7qx")
+area_name = "Danger Zone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Danger Zone"]
+position = Vector2(4469.75, -1068.38)
+shape = SubResource("RectangleShape2D_u52v4")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Options" type="Area2D" parent="area name triggers"]
+position = Vector2(43635, -466)
+script = ExtResource("3_0y7qx")
+area_name = "Options"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Options"]
+position = Vector2(82.5, -100)
+shape = SubResource("RectangleShape2D_uoog7")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="This is hard(er)" type="Area2D" parent="area name triggers"]
+position = Vector2(42986, -1061)
+script = ExtResource("3_0y7qx")
+area_name = "This is hard(er)"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/This is hard(er)"]
+position = Vector2(-3852, -222)
+shape = SubResource("RectangleShape2D_yitjs")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="The World between Worlds" type="Area2D" parent="area name triggers"]
+position = Vector2(9561, 6595)
+script = ExtResource("3_0y7qx")
+area_name = "The World between Worlds"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/The World between Worlds"]
+position = Vector2(-12, 51.5)
+shape = SubResource("RectangleShape2D_1cgf3")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Fragmented Life" type="Area2D" parent="area name triggers"]
+position = Vector2(40151, -6771)
+script = ExtResource("3_0y7qx")
+area_name = "Fragmented Life"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Fragmented Life"]
+position = Vector2(195, 564.5)
+shape = SubResource("RectangleShape2D_i3w10")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="A very long corridor" type="Area2D" parent="area name triggers"]
+position = Vector2(19737, -1887)
+script = ExtResource("3_0y7qx")
+area_name = "A very long corridor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/A very long corridor"]
+position = Vector2(136, -5)
+shape = SubResource("RectangleShape2D_nfufs")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="To reconsider your choices" type="Area2D" parent="area name triggers"]
+position = Vector2(17586, -1887)
+script = ExtResource("3_0y7qx")
+area_name = "To reconsider your choices"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/To reconsider your choices"]
+position = Vector2(181, -5)
+shape = SubResource("RectangleShape2D_nfufs")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="fall_io" type="Area2D" parent="area name triggers"]
+position = Vector2(16612, 167)
+script = ExtResource("3_0y7qx")
+area_name = "fall.io"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/fall_io"]
+position = Vector2(5.5, 816.5)
+shape = SubResource("RectangleShape2D_06q7i")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="RISE!" type="Area2D" parent="area name triggers"]
+position = Vector2(36187, -3426)
+script = ExtResource("3_0y7qx")
+area_name = "RISE!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/RISE!"]
+position = Vector2(6, -261.5)
+shape = SubResource("RectangleShape2D_ls3j4")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="You forgot your Orbs" type="Area2D" parent="area name triggers"]
+position = Vector2(36187, -3426)
+script = ExtResource("3_0y7qx")
+area_name = "You forgot your Orbs"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/You forgot your Orbs"]
+position = Vector2(603.25, -2271.25)
+shape = SubResource("RectangleShape2D_lyqay")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="This jump is unnecessary" type="Area2D" parent="area name triggers"]
+position = Vector2(37444, -7154)
+script = ExtResource("3_0y7qx")
+area_name = "This jump is unnecessary"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/This jump is unnecessary"]
+position = Vector2(-63.125, -54.125)
+shape = SubResource("RectangleShape2D_kmiu4")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="This corridor is unnecessary" type="Area2D" parent="area name triggers"]
+position = Vector2(37444, -7154)
+script = ExtResource("3_0y7qx")
+area_name = "This corridor is unnecessary"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/This corridor is unnecessary"]
+position = Vector2(-1400.06, 231)
+shape = SubResource("RectangleShape2D_wfgj8")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="This drop is unnecessary" type="Area2D" parent="area name triggers"]
+position = Vector2(37444, -7154)
+script = ExtResource("3_0y7qx")
+area_name = "This drop is unnecessary"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/This drop is unnecessary"]
+position = Vector2(-2166, 2221.78)
+shape = SubResource("RectangleShape2D_hqfbt")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Everything is unnecessary" type="Area2D" parent="area name triggers"]
+position = Vector2(37444, -7154)
+script = ExtResource("3_0y7qx")
+area_name = "Everything is unnecessary"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Everything is unnecessary"]
+position = Vector2(179, -1229.11)
+shape = SubResource("RectangleShape2D_qqlpg")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="area name triggers/Everything is unnecessary"]
+position = Vector2(-431.5, -832.5)
+shape = SubResource("RectangleShape2D_ipgs0")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Except for this" type="Area2D" parent="area name triggers"]
+position = Vector2(37444, -7154)
+script = ExtResource("3_0y7qx")
+area_name = "Except for this"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Except for this"]
+position = Vector2(-424, -1601.11)
+shape = SubResource("RectangleShape2D_ynlqj")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Ooh big text" type="Area2D" parent="area name triggers"]
+position = Vector2(28662, -5394)
+script = ExtResource("3_0y7qx")
+area_name = "Ooh big text"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Ooh big text"]
+position = Vector2(1093, -27.0547)
+shape = SubResource("RectangleShape2D_la3gw")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="___" type="Area2D" parent="area name triggers"]
+position = Vector2(28662, -5394)
+script = ExtResource("3_0y7qx")
+area_name = "..."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/___"]
+position = Vector2(3704, -27.0547)
+shape = SubResource("RectangleShape2D_pqtk4")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Very Funny_" type="Area2D" parent="area name triggers"]
+position = Vector2(28662, -5394)
+script = ExtResource("3_0y7qx")
+area_name = "Very Funny."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Very Funny_"]
+position = Vector2(5561.5, -27.0547)
+shape = SubResource("RectangleShape2D_j81ob")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Are You Ready?" type="Area2D" parent="area name triggers"]
+position = Vector2(28662, -5394)
+script = ExtResource("3_0y7qx")
+area_name = "Are You Ready?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Are You Ready?"]
+position = Vector2(6160.5, -1232.55)
+shape = SubResource("RectangleShape2D_i4nkk")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="The Final Trial_ RUN!" type="Area2D" parent="area name triggers"]
+position = Vector2(28662, -5394)
+script = ExtResource("3_0y7qx")
+area_name = "The Final Trial: RUN!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/The Final Trial_ RUN!"]
+position = Vector2(2351.5, -1232.55)
+shape = SubResource("RectangleShape2D_d2ifr")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="The Final Trial_ JUMP!" type="Area2D" parent="area name triggers"]
+position = Vector2(27962, -7264)
+script = ExtResource("3_0y7qx")
+area_name = "The Final Trial: JUMP!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/The Final Trial_ JUMP!"]
+position = Vector2(34.75, -3057.28)
+shape = SubResource("RectangleShape2D_4swf2")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Alternate Blocks" type="Area2D" parent="area name triggers"]
+position = Vector2(27962, -7264)
+script = ExtResource("3_0y7qx")
+area_name = "Alternate Blocks"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Alternate Blocks"]
+position = Vector2(2928.5, -9430)
+shape = SubResource("RectangleShape2D_vmykq")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="area name triggers/Alternate Blocks"]
+position = Vector2(6681.5, -12093)
+shape = SubResource("RectangleShape2D_5bv6t")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="The Final Room" type="Area2D" parent="area name triggers"]
+position = Vector2(27962, -7264)
+script = ExtResource("3_0y7qx")
+area_name = "The Final Room"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/The Final Room"]
+position = Vector2(4998, -16960.5)
+shape = SubResource("RectangleShape2D_32nl6")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Win" type="Area2D" parent="area name triggers"]
+position = Vector2(27962, -7264)
+script = ExtResource("3_0y7qx")
+area_name = "Win"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Win"]
+position = Vector2(344, -20211.8)
+shape = SubResource("RectangleShape2D_rs8xb")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Go up top" type="Area2D" parent="area name triggers"]
+position = Vector2(34511, -1924)
+script = ExtResource("3_0y7qx")
+area_name = "Go up top"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Go up top"]
+position = Vector2(1380.5, -60.25)
+shape = SubResource("RectangleShape2D_l3wjf")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="three_guys_pointing_png" type="Area2D" parent="area name triggers"]
+position = Vector2(34511, -1924)
+script = ExtResource("3_0y7qx")
+area_name = "three_guys_pointing.png"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/three_guys_pointing_png"]
+position = Vector2(3542, -1019.12)
+shape = SubResource("RectangleShape2D_0j8hu")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Weird Space" type="Area2D" parent="area name triggers"]
+position = Vector2(37414, -2700)
+script = ExtResource("3_0y7qx")
+area_name = "Weird Space"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Weird Space"]
+position = Vector2(-21, -1)
+shape = SubResource("RectangleShape2D_pe8p5")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="2 Factor Authentication" type="Area2D" parent="area name triggers"]
+position = Vector2(20691, -2372)
+script = ExtResource("3_0y7qx")
+area_name = "2 Factor Authentication"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/2 Factor Authentication"]
+position = Vector2(-21, -1)
+shape = SubResource("RectangleShape2D_pe8p5")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Boredom Street" type="Area2D" parent="area name triggers"]
+position = Vector2(20691, -2372)
+script = ExtResource("3_0y7qx")
+area_name = "Boredom Street"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Boredom Street"]
+position = Vector2(-2295, -85.5)
+shape = SubResource("RectangleShape2D_g7hc0")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="The Great Beyond" type="Area2D" parent="area name triggers"]
+position = Vector2(15054, -3492)
+script = ExtResource("3_0y7qx")
+area_name = "The Great Beyond"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/The Great Beyond"]
+position = Vector2(-1905, 110)
+shape = SubResource("RectangleShape2D_xdqgh")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Cycles but faster" type="Area2D" parent="area name triggers"]
+position = Vector2(11933, -3694)
+script = ExtResource("3_0y7qx")
+area_name = "Cycles but faster"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Cycles but faster"]
+position = Vector2(-1778, -237.5)
+shape = SubResource("RectangleShape2D_oh2tx")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="What\'s Physics?" type="Area2D" parent="area name triggers"]
+position = Vector2(11933, -3694)
+script = ExtResource("3_0y7qx")
+area_name = "What's Physics?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/What\'s Physics?"]
+position = Vector2(-4616.5, -466.5)
+shape = SubResource("RectangleShape2D_dwf1q")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Leg Day" type="Area2D" parent="area name triggers"]
+position = Vector2(22562, -61)
+script = ExtResource("3_0y7qx")
+area_name = "Leg Day"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Leg Day"]
+position = Vector2(-359.25, 1068.75)
+shape = SubResource("RectangleShape2D_jvgko")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="area name triggers/Leg Day"]
+position = Vector2(275.375, 316.375)
+shape = SubResource("RectangleShape2D_0eol8")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="area name triggers/Leg Day"]
+position = Vector2(-936.312, 3579.69)
+shape = SubResource("RectangleShape2D_iaguk")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="This way is easier" type="Area2D" parent="area name triggers"]
+position = Vector2(22804, 2066)
+script = ExtResource("3_0y7qx")
+area_name = "This way is easier"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/This way is easier"]
+position = Vector2(55.375, 84.875)
+shape = SubResource("RectangleShape2D_dorge")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Easier" type="Area2D" parent="area name triggers"]
+position = Vector2(23351, 2887)
+script = ExtResource("3_0y7qx")
+area_name = "Easier"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Easier"]
+position = Vector2(490.375, 626.375)
+shape = SubResource("RectangleShape2D_ob54b")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Through the Middle" type="Area2D" parent="area name triggers"]
+position = Vector2(22512, 3510)
+script = ExtResource("3_0y7qx")
+area_name = "Through the Middle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Through the Middle"]
+position = Vector2(-20.5, 112)
+shape = SubResource("RectangleShape2D_24d66")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Rhythm" type="Area2D" parent="area name triggers"]
+position = Vector2(24548, 1560)
+script = ExtResource("3_0y7qx")
+area_name = "Rhythm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Rhythm"]
+position = Vector2(2407, 39.5)
+shape = SubResource("RectangleShape2D_mtlwf")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Sing a song of sixpence" type="Area2D" parent="area name triggers"]
+position = Vector2(17437, 3176)
+script = ExtResource("3_0y7qx")
+area_name = "Sing a song of sixpence"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Sing a song of sixpence"]
+position = Vector2(-27.5, -2122.5)
+shape = SubResource("RectangleShape2D_ognyf")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="A pocketful of rye" type="Area2D" parent="area name triggers"]
+position = Vector2(17437, 3176)
+script = ExtResource("3_0y7qx")
+area_name = "A pocketful of rye"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/A pocketful of rye"]
+position = Vector2(1106.25, -2132)
+shape = SubResource("RectangleShape2D_wob43")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Four and Twenty blackbirds" type="Area2D" parent="area name triggers"]
+position = Vector2(17437, 3176)
+script = ExtResource("3_0y7qx")
+area_name = "Four and Twenty blackbirds"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Four and Twenty blackbirds"]
+position = Vector2(2801.62, -153.75)
+shape = SubResource("RectangleShape2D_dr26i")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="area name triggers/Four and Twenty blackbirds"]
+position = Vector2(4158.5, -825.5)
+shape = SubResource("RectangleShape2D_pqg35")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Stuck in a Pie" type="Area2D" parent="area name triggers"]
+position = Vector2(17437, 3176)
+script = ExtResource("3_0y7qx")
+area_name = "Stuck in a Pie"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Stuck in a Pie"]
+position = Vector2(3052.5, -2366)
+shape = SubResource("RectangleShape2D_emga1")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Standard Platformer" type="Area2D" parent="area name triggers"]
+position = Vector2(29937, -2346)
+script = ExtResource("3_0y7qx")
+area_name = "Standard Platformer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Standard Platformer"]
+position = Vector2(31.25, -41)
+shape = SubResource("RectangleShape2D_gfc88")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Is this also a thousand years old?" type="Area2D" parent="area name triggers"]
+position = Vector2(25821, -6949)
+script = ExtResource("3_0y7qx")
+area_name = "Is this also a thousand years old?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Is this also a thousand years old?"]
+position = Vector2(366, -55)
+shape = SubResource("RectangleShape2D_6d1cn")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Spikes and Walls" type="Area2D" parent="area name triggers"]
+position = Vector2(25821, -6949)
+script = ExtResource("3_0y7qx")
+area_name = "Spikes and Walls"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Spikes and Walls"]
+position = Vector2(-1139, -2088)
+shape = SubResource("RectangleShape2D_p7hej")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Walls and Spikes" type="Area2D" parent="area name triggers"]
+position = Vector2(25821, -6949)
+script = ExtResource("3_0y7qx")
+area_name = "Walls and Spikes"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Walls and Spikes"]
+position = Vector2(-1843.5, -7006)
+shape = SubResource("RectangleShape2D_ea8of")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="And Walls, Spikes" type="Area2D" parent="area name triggers"]
+position = Vector2(25821, -6949)
+script = ExtResource("3_0y7qx")
+area_name = "And Walls, Spikes"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/And Walls, Spikes"]
+position = Vector2(-2250.75, -6198.5)
+shape = SubResource("RectangleShape2D_xhsso")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Flip!" type="Area2D" parent="area name triggers"]
+position = Vector2(25821, -6949)
+script = ExtResource("3_0y7qx")
+area_name = "Flip!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Flip!"]
+position = Vector2(-3204, -6198)
+shape = SubResource("RectangleShape2D_10iy0")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Mr Coyote would like a word" type="Area2D" parent="area name triggers"]
+position = Vector2(25821, -6949)
+script = ExtResource("3_0y7qx")
+area_name = "Mr Coyote would like a word"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Mr Coyote would like a word"]
+position = Vector2(-3662.5, -2126.88)
+shape = SubResource("RectangleShape2D_laawr")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Ready?" type="Area2D" parent="area name triggers"]
+position = Vector2(25821, -6949)
+script = ExtResource("3_0y7qx")
+area_name = "Ready?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Ready?"]
+position = Vector2(-3365.25, -10728.4)
+shape = SubResource("RectangleShape2D_cceva")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="Bye!" type="Area2D" parent="area name triggers"]
+position = Vector2(25821, -6949)
+script = ExtResource("3_0y7qx")
+area_name = "Bye!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Bye!"]
+position = Vector2(-4144.38, -3921.78)
+shape = SubResource("RectangleShape2D_rlynk")
+debug_color = Color(0.870588, 0, 0.847059, 0)
+
+[node name="checkpoints" type="Node2D" parent="."]
+
+[node name="checkpoint" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(17347, -3012)
+
+[node name="checkpoint2" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(14338, 95)
+
+[node name="checkpoint3" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(21715, -2843)
+collision_size = Vector2(1, 10)
+collision_offset = Vector2(0, -200)
+
+[node name="checkpoint4" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(27396, -3102)
+
+[node name="checkpoint5" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(30002, -3092)
+
+[node name="checkpoint6" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(32543, -3708)
+collision_size = Vector2(1, 5)
+
+[node name="checkpoint8" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(34151, -2736)
+
+[node name="checkpoint9" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(33632, 964)
+
+[node name="checkpoint10" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(30027, 918)
+
+[node name="checkpoint11" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(21784, -800)
+collision_size = Vector2(1, 10)
+collision_offset = Vector2(0, -200)
+
+[node name="checkpoint12" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(43142, -286)
+collision_size = Vector2(1, 10)
+collision_offset = Vector2(0, -200)
+
+[node name="checkpoint13" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(34362, -1375)
+collision_size = Vector2(1, 3)
+
+[node name="checkpoint14" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(20912, -1888)
+collision_size = Vector2(1, 3)
+
+[node name="checkpoint15" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(22752, -827)
+scale = Vector2(0.5, 0.5)
+collision_size = Vector2(1, 3)
+
+[node name="checkpoint16" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(22761, 2789)
+
+[node name="checkpoint17" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(35576, -6907)
+
+[node name="checkpoint18" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(11709, -3742)
+
+[node name="checkpoint19" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(8533, -3846)
+
+[node name="checkpoint20" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(6106, -3838)
+
+[node name="checkpoint21" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(33951, -3906)
+
+[node name="checkpoint22" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(34208, -1696)
+
+[node name="checkpoint23" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(24213, 2014)
+
+[node name="checkpoint24" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(17141, 3744)
+
+[node name="checkpoint25" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(18097, -1563)
+
+[node name="checkpoint26" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(19096, 3718)
+
+[node name="checkpoint27" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(37984, -1760)
+
+[node name="checkpoint28" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(-3328, -1766)
+
+[node name="checkpoint29" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(13237, -2278)
+
+[node name="checkpoint30" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(25334, -6489)
+
+[node name="checkpoint31" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(24107, -10118)
+
+[node name="checkpoint32" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(23750, -17186)
+
+[node name="checkpoint33" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(23225, -9037)
+
+[node name="checkpoint34" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(37287, -8449)
+
+[node name="checkpoint35" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(34591, -6459)
+
+[node name="checkpoint36" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(29144, -13087)
+
+[node name="checkpoint37" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(36412, -20830)
+
+[node name="obstacles" type="Node2D" parent="."]
+
+[node name="cycles" type="Node2D" parent="obstacles"]
+
+[node name="trigger area" type="Area2D" parent="obstacles/cycles"]
+position = Vector2(26636, -3216)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_dcmjj")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/cycles/trigger area"]
+position = Vector2(2933, -494)
+shape = SubResource("RectangleShape2D_m6c0x")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="death orb" parent="obstacles/cycles" instance=ExtResource("8_rfdk1")]
+position = Vector2(27761, -3143)
+points = Array[Vector2]([Vector2(0, 130), Vector2(0, -180)])
+speed = 500.0
+despawn_distance = -1.0
+enabled = false
+
+[node name="death orb2" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(27833, -3143)
+points = Array[Vector2]([Vector2(0, 130), Vector2(0, -180)])
+speed = 500.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb3" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(27899, -3143)
+points = Array[Vector2]([Vector2(0, 130), Vector2(0, -180)])
+speed = 500.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb4" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(27961, -3143)
+points = Array[Vector2]([Vector2(0, 130), Vector2(0, -180)])
+speed = 500.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb6" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(28327, -3032)
+points = Array[Vector2]([Vector2(200, 0), Vector2(-200, 0)])
+speed = 300.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb7" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(28729, -3033)
+points = Array[Vector2]([Vector2(-200, 0), Vector2(200, 0)])
+speed = 300.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb8" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(29270, -3091)
+points = Array[Vector2]([Vector2(-200, 0), Vector2(200, 0)])
+speed = 300.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb9" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(29654, -3091)
+points = Array[Vector2]([Vector2(200, 0), Vector2(-200, 0)])
+speed = 300.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb11" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(30483, -3111)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -700)])
+speed = 400.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb12" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(31077, -3111)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -700)])
+speed = 400.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb13" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(31382, -3111)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -700)])
+speed = 400.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb14" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(30077, -3242)
+points = Array[Vector2]([Vector2(0, 0), Vector2(1500, 0)])
+speed = 400.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb16" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(30077, -3623)
+points = Array[Vector2]([Vector2(0, 0), Vector2(1500, 0)])
+speed = 400.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb17" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(30077, -3873)
+points = Array[Vector2]([Vector2(0, 0), Vector2(1500, 0)])
+speed = 400.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="chase" parent="obstacles" instance=ExtResource("8_rfdk1")]
+position = Vector2(28420, 529)
+scale = Vector2(7.5, 7.5)
+points = Array[Vector2]([Vector2(0, 0), Vector2(575, 0), Vector2(575, -62.5), Vector2(-75, -62.5), Vector2(-75, -110), Vector2(575, -110), Vector2(575, -175), Vector2(-630, -175), Vector2(-630, 175), Vector2(-680, 175), Vector2(-680, -225)])
+speed = 400.0
+despawn_distance = -1.0
+
+[node name="cycles 2" type="Node2D" parent="obstacles"]
+
+[node name="death orb" parent="obstacles/cycles 2" instance=ExtResource("8_rfdk1")]
+position = Vector2(11374, -3853)
+points = Array[Vector2]([Vector2(0, 0), Vector2(-2500, 0)])
+speed = 1200.0
+despawn_distance = 10000.0
+
+[node name="death orb2" parent="obstacles/cycles 2" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(10124, -3853)
+points = Array[Vector2]([Vector2(0, 0), Vector2(-1250, 0), Vector2(1250, 0)])
+speed = 1200.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb3" parent="obstacles/cycles 2" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(8874, -3853)
+points = Array[Vector2]([Vector2(0, 0), Vector2(2500, 0)])
+speed = 1200.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb5" parent="obstacles/cycles 2" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(10124, -3853)
+points = Array[Vector2]([Vector2(0, 0), Vector2(1250, 0), Vector2(-1250, 0)])
+speed = 1200.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="a lot of orbs" type="Node2D" parent="obstacles"]
+
+[node name="vertical" type="Node2D" parent="obstacles/a lot of orbs"]
+
+[node name="trigger area" type="Area2D" parent="obstacles/a lot of orbs/vertical"]
+position = Vector2(37506, -1817)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_lagoe")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/a lot of orbs/vertical/trigger area"]
+position = Vector2(-1502, -178.5)
+shape = SubResource("RectangleShape2D_cdop1")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="death orb" parent="obstacles/a lot of orbs/vertical" instance=ExtResource("8_rfdk1")]
+position = Vector2(35769, -2021)
+points = Array[Vector2]([Vector2(0, -400), Vector2(0, 400)])
+speed = 1000.0
+despawn_distance = -1.0
+enabled = false
+
+[node name="death orb2" parent="obstacles/a lot of orbs/vertical" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36038, -2021)
+points = Array[Vector2]([Vector2(0, 400), Vector2(0, -400)])
+speed = 1000.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb3" parent="obstacles/a lot of orbs/vertical" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36278, -2013)
+points = Array[Vector2]([Vector2(0, -400), Vector2(0, 400)])
+speed = 1000.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb4" parent="obstacles/a lot of orbs/vertical" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36547, -2013)
+points = Array[Vector2]([Vector2(0, 400), Vector2(0, -400)])
+speed = 1000.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb5" parent="obstacles/a lot of orbs/vertical" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36795, -2015)
+points = Array[Vector2]([Vector2(0, -400), Vector2(0, 400)])
+speed = 1000.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb6" parent="obstacles/a lot of orbs/vertical" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(37064, -2015)
+points = Array[Vector2]([Vector2(0, 400), Vector2(0, -400)])
+speed = 1000.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb7" parent="obstacles/a lot of orbs/vertical" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(37298, -2010)
+points = Array[Vector2]([Vector2(0, -400), Vector2(0, 400)])
+speed = 1000.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="death orb8" parent="obstacles/a lot of orbs/vertical" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(37570, -1977)
+points = Array[Vector2]([Vector2(0, 400), Vector2(0, -400)])
+speed = 1000.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="horizontal" type="Node2D" parent="obstacles/a lot of orbs"]
+
+[node name="death orb" parent="obstacles/a lot of orbs/horizontal" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36609, -1657)
+points = Array[Vector2]([Vector2(0, 0), Vector2(-1000, 0), Vector2(1000, 0)])
+speed = 500.0
+despawn_linked_orb = NodePath("../../vertical/death orb")
+
+[node name="death orb2" parent="obstacles/a lot of orbs/horizontal" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36609, -1657)
+points = Array[Vector2]([Vector2(0, 0), Vector2(1000, 0), Vector2(-1000, 0)])
+speed = 500.0
+despawn_linked_orb = NodePath("../../vertical/death orb")
+
+[node name="death orb3" parent="obstacles/a lot of orbs/horizontal" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36611, -1896)
+points = Array[Vector2]([Vector2(0, 0), Vector2(-1000, 0), Vector2(1000, 0)])
+speed = 500.0
+despawn_linked_orb = NodePath("../../vertical/death orb")
+
+[node name="death orb4" parent="obstacles/a lot of orbs/horizontal" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36611, -1896)
+points = Array[Vector2]([Vector2(0, 0), Vector2(1000, 0), Vector2(-1000, 0)])
+speed = 500.0
+despawn_linked_orb = NodePath("../../vertical/death orb")
+
+[node name="death orb5" parent="obstacles/a lot of orbs/horizontal" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36611, -2140)
+points = Array[Vector2]([Vector2(0, 0), Vector2(-1000, 0), Vector2(1000, 0)])
+speed = 500.0
+despawn_linked_orb = NodePath("../../vertical/death orb")
+
+[node name="death orb6" parent="obstacles/a lot of orbs/horizontal" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36611, -2140)
+points = Array[Vector2]([Vector2(0, 0), Vector2(1000, 0), Vector2(-1000, 0)])
+speed = 500.0
+despawn_linked_orb = NodePath("../../vertical/death orb")
+
+[node name="trial 1" parent="obstacles" instance=ExtResource("8_rfdk1")]
+position = Vector2(35969, -6657)
+scale = Vector2(24, 24)
+points = Array[Vector2]([Vector2(0, 0), Vector2(-330, 0), Vector2(-330, -1000)])
+speed = 350.0
+despawn_distance = -1.0
+enabled = false
+disabled_from_function = true
+
+[node name="trial 2" type="Node2D" parent="obstacles"]
+
+[node name="speed 1" type="Node2D" parent="obstacles/trial 2"]
+
+[node name="group" type="Node2D" parent="obstacles/trial 2/speed 1"]
+
+[node name="death orb" parent="obstacles/trial 2/speed 1/group" instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_distance = -1.0
+enabled = false
+
+[node name="death orb2" parent="obstacles/trial 2/speed 1/group" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../death orb")
+
+[node name="group2" type="Node2D" parent="obstacles/trial 2/speed 1"]
+position = Vector2(-192, -448)
+
+[node name="death orb" parent="obstacles/trial 2/speed 1/group2" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 1/group2" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="group3" type="Node2D" parent="obstacles/trial 2/speed 1"]
+position = Vector2(-576, -768)
+
+[node name="death orb" parent="obstacles/trial 2/speed 1/group3" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 1/group3" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="group4" type="Node2D" parent="obstacles/trial 2/speed 1"]
+position = Vector2(-960, -1280)
+
+[node name="death orb" parent="obstacles/trial 2/speed 1/group4" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 1/group4" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="group5" type="Node2D" parent="obstacles/trial 2/speed 1"]
+position = Vector2(-448, -1600)
+
+[node name="death orb" parent="obstacles/trial 2/speed 1/group5" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 1/group5" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="group6" type="Node2D" parent="obstacles/trial 2/speed 1"]
+position = Vector2(-704, -2048)
+
+[node name="death orb" parent="obstacles/trial 2/speed 1/group6" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 1/group6" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="group7" type="Node2D" parent="obstacles/trial 2/speed 1"]
+position = Vector2(-1152, -2432)
+
+[node name="death orb" parent="obstacles/trial 2/speed 1/group7" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 1/group7" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../group/death orb")
+
+[node name="speed 2" type="Node2D" parent="obstacles/trial 2"]
+
+[node name="group8" type="Node2D" parent="obstacles/trial 2/speed 2"]
+position = Vector2(-3712, -2752)
+
+[node name="death orb" parent="obstacles/trial 2/speed 2/group8" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 2/group8" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group9" type="Node2D" parent="obstacles/trial 2/speed 2"]
+position = Vector2(-3328, -3008)
+
+[node name="death orb" parent="obstacles/trial 2/speed 2/group9" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 2/group9" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group10" type="Node2D" parent="obstacles/trial 2/speed 2"]
+position = Vector2(-2880, -3328)
+
+[node name="death orb" parent="obstacles/trial 2/speed 2/group10" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 2/group10" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group11" type="Node2D" parent="obstacles/trial 2/speed 2"]
+position = Vector2(-2624, -3904)
+
+[node name="death orb" parent="obstacles/trial 2/speed 2/group11" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 2/group11" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group12" type="Node2D" parent="obstacles/trial 2/speed 2"]
+position = Vector2(-2304, -4416)
+
+[node name="death orb" parent="obstacles/trial 2/speed 2/group12" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 2/group12" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group13" type="Node2D" parent="obstacles/trial 2/speed 2"]
+position = Vector2(-2752, -4736)
+
+[node name="death orb" parent="obstacles/trial 2/speed 2/group13" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 2/group13" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group14" type="Node2D" parent="obstacles/trial 2/speed 2"]
+position = Vector2(-3200, -4928)
+
+[node name="death orb" parent="obstacles/trial 2/speed 2/group14" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 2/group14" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group15" type="Node2D" parent="obstacles/trial 2/speed 2"]
+position = Vector2(-3520, -4672)
+
+[node name="death orb" parent="obstacles/trial 2/speed 2/group15" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 2/group15" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group16" type="Node2D" parent="obstacles/trial 2/speed 2"]
+position = Vector2(-3840, -4928)
+
+[node name="death orb" parent="obstacles/trial 2/speed 2/group16" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 2/group16" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group17" type="Node2D" parent="obstacles/trial 2/speed 2"]
+position = Vector2(-4288, -5184)
+
+[node name="death orb" parent="obstacles/trial 2/speed 2/group17" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 2/group17" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="speed 3" type="Node2D" parent="obstacles/trial 2"]
+
+[node name="group18" type="Node2D" parent="obstacles/trial 2/speed 3"]
+position = Vector2(-5632, -3968)
+
+[node name="death orb" parent="obstacles/trial 2/speed 3/group18" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 3/group18" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group19" type="Node2D" parent="obstacles/trial 2/speed 3"]
+position = Vector2(-6144, -4352)
+
+[node name="death orb" parent="obstacles/trial 2/speed 3/group19" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 3/group19" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group20" type="Node2D" parent="obstacles/trial 2/speed 3"]
+position = Vector2(-6464, -4800)
+
+[node name="death orb" parent="obstacles/trial 2/speed 3/group20" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 3/group20" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group21" type="Node2D" parent="obstacles/trial 2/speed 3"]
+position = Vector2(-6656, -5248)
+
+[node name="death orb" parent="obstacles/trial 2/speed 3/group21" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 3/group21" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group22" type="Node2D" parent="obstacles/trial 2/speed 3"]
+position = Vector2(-6144, -5696)
+
+[node name="death orb" parent="obstacles/trial 2/speed 3/group22" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 3/group22" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="group23" type="Node2D" parent="obstacles/trial 2/speed 3"]
+position = Vector2(-6464, -6208)
+
+[node name="death orb" parent="obstacles/trial 2/speed 3/group23" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36112, -20912)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, -288), Vector2(-96, -288), Vector2(-96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="death orb2" parent="obstacles/trial 2/speed 3/group23" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
+position = Vector2(36016, -21200)
+points = Array[Vector2]([Vector2(0, 0), Vector2(0, 288), Vector2(96, 288), Vector2(96, 0)])
+speed = 200.0
+despawn_linked_orb = NodePath("../../../speed 1/group/death orb")
+
+[node name="collectables" type="Node2D" parent="."]
+
+[node name="fall damage" parent="collectables" instance=ExtResource("7_mx21e")]
+position = Vector2(14647, 54)
+item_id = &"fall damage"
+
+[node name="purple orb" parent="collectables" instance=ExtResource("7_mx21e")]
+position = Vector2(32788, -3714)
+item_id = &"enable-blocks-1"
+item_sprite = ExtResource("15_iexr4")
+
+[node name="warp orb" parent="collectables" instance=ExtResource("7_mx21e")]
+position = Vector2(21980, -833)
+item_id = &"warp_orb"
+item_sprite = ExtResource("16_sp0x2")
+
+[node name="pink orb" parent="collectables" instance=ExtResource("7_mx21e")]
+position = Vector2(43705, -263)
+item_id = &"enable-blocks-2"
+item_sprite = ExtResource("17_jpsn1")
+
+[node name="yellow orb" parent="collectables" instance=ExtResource("7_mx21e")]
+position = Vector2(23011, 2796)
+item_id = &"enable-blocks-3"
+item_sprite = ExtResource("18_en0ds")
+
+[node name="double jump" parent="collectables" instance=ExtResource("7_mx21e")]
+position = Vector2(8035, -3940)
+item_id = &"double_jump"
+item_sprite = ExtResource("19_np0pf")
+
+[node name="blue orb" parent="collectables" instance=ExtResource("7_mx21e")]
+position = Vector2(32766, -1220)
+item_id = &"enable-blocks-4"
+item_sprite = ExtResource("20_ch061")
+
+[node name="wall jump" parent="collectables" instance=ExtResource("7_mx21e")]
+position = Vector2(38094, -1731)
+item_id = &"wall_jump"
+item_sprite = ExtResource("21_6ge8a")
+
+[node name="gravity orb" parent="collectables" instance=ExtResource("7_mx21e")]
+position = Vector2(22128, -9055)
+item_id = &"enable-blocks-6"
+item_sprite = ExtResource("22_sssds")
+
+[node name="key" parent="collectables" instance=ExtResource("7_mx21e")]
+position = Vector2(37078, -8492)
+item_id = &"enable-blocks-5"
+item_sprite = ExtResource("23_1lq1j")
+
+[node name="areas" type="Node2D" parent="."]
+
+[node name="chase" type="Node2D" parent="areas"]
+
+[node name="chase start" type="Area2D" parent="areas/chase"]
+position = Vector2(29700, 556)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_3eqdv"), SubResource("Resource_fv6gd")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/chase/chase start"]
+position = Vector2(-226, 6)
+shape = SubResource("RectangleShape2D_bldut")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="chase end" type="Area2D" parent="areas/chase"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_61cff")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/chase/chase end"]
+position = Vector2(30020.5, 918.5)
+shape = SubResource("RectangleShape2D_w3heq")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="areas/chase/chase end"]
+position = Vector2(23066, -1109)
+shape = SubResource("RectangleShape2D_w3heq")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="cycle timers" type="Node2D" parent="areas"]
+
+[node name="TriggerArea" type="Area2D" parent="areas/cycle timers"]
+position = Vector2(24173, 1899)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_3osaw")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/cycle timers/TriggerArea"]
+position = Vector2(2781, -297)
+shape = SubResource("RectangleShape2D_3p5hu")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="TriggerArea2" type="Area2D" parent="areas/cycle timers"]
+position = Vector2(17050, 3560)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_dwbf4")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/cycle timers/TriggerArea2"]
+position = Vector2(362, -2511)
+shape = SubResource("RectangleShape2D_0l5xh")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="TriggerArea3" type="Area2D" parent="areas/cycle timers"]
+position = Vector2(18247, -1454)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_fuv53")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/cycle timers/TriggerArea3"]
+position = Vector2(274.5, 2509)
+shape = SubResource("RectangleShape2D_q326j")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="TriggerArea4" type="Area2D" parent="areas/cycle timers"]
+position = Vector2(19427, 3555)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_xolcx")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/cycle timers/TriggerArea4"]
+position = Vector2(866.75, -265)
+shape = SubResource("RectangleShape2D_46vwl")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="TriggerArea5" type="Area2D" parent="areas/cycle timers"]
+position = Vector2(19393, 1641)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_gowkk")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/cycle timers/TriggerArea5"]
+position = Vector2(1087, -821)
+shape = SubResource("RectangleShape2D_jqwsr")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="final trial" type="Node2D" parent="areas"]
+
+[node name="replace orb" type="Area2D" parent="areas/final trial"]
+position = Vector2(34810, -6656)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_6hvqb"), SubResource("Resource_5qqy1")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/final trial/replace orb"]
+position = Vector2(-219.5, 191.5)
+shape = SubResource("RectangleShape2D_8sfi8")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="start orb" type="Area2D" parent="areas/final trial"]
+position = Vector2(33718, -6474)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_saswf")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/final trial/start orb"]
+position = Vector2(232.5, -77)
+shape = SubResource("RectangleShape2D_bj4ho")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="slow orb" type="Area2D" parent="areas/final trial"]
+position = Vector2(27932, -7661)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_k72i5")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/final trial/slow orb"]
+position = Vector2(93.5, -200)
+shape = SubResource("RectangleShape2D_u2igw")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="stop orb" type="Area2D" parent="areas/final trial"]
+position = Vector2(29204, -13099)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_g11r8"), SubResource("Resource_6o3ig")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/final trial/stop orb"]
+shape = SubResource("RectangleShape2D_idbrr")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="cycles area" type="Area2D" parent="areas/final trial"]
+position = Vector2(29448, -20944)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_2ad0w")
+methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_rjn4x")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/final trial/cycles area"]
+position = Vector2(3563.5, -3323.5)
+shape = SubResource("RectangleShape2D_66ps7")
+debug_color = Color(0.666667, 0.666667, 0, 0)
+
+[node name="warp doors" type="Node2D" parent="."]
+
+[node name="practice" type="Node2D" parent="warp doors" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(21408, -768)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0, 0, 0, 0.5)
+
+[node name="In" parent="warp doors/practice" instance=ExtResource("12_pux87")]
+position = Vector2(-53, 0)
+
+[node name="Out" parent="warp doors/practice" instance=ExtResource("12_pux87")]
+position = Vector2(-200, 0)
+
+[node name="world between worlds" type="Node2D" parent="warp doors"]
+
+[node name="floor 1" type="Node2D" parent="warp doors/world between worlds"]
+
+[node name="entrance" type="Node2D" parent="warp doors/world between worlds/floor 1" node_paths=PackedStringArray("in_door", "out_door")]
+script = ExtResource("11_suls4")
+doors_are_two_way = true
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.970928, 0.00016711, 8.83681e-05, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 1/entrance" instance=ExtResource("12_pux87")]
+position = Vector2(20767, -768)
+
+[node name="Out" parent="warp doors/world between worlds/floor 1/entrance" instance=ExtResource("12_pux87")]
+position = Vector2(10459, 6336)
+
+[node name="danger" type="Node2D" parent="warp doors/world between worlds/floor 1" node_paths=PackedStringArray("in_door", "out_door")]
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0, 0.772549, 0, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 1/danger" instance=ExtResource("12_pux87")]
+position = Vector2(10080, 6145)
+
+[node name="Out" parent="warp doors/world between worlds/floor 1/danger" instance=ExtResource("12_pux87")]
+position = Vector2(30027, 833)
+use_sprite = false
+
+[node name="rift 1" type="Node2D" parent="warp doors/world between worlds/floor 1" node_paths=PackedStringArray("in_door", "out_door")]
+script = ExtResource("11_suls4")
+doors_are_two_way = true
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0, 0, 0.639216, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 1/rift 1" instance=ExtResource("12_pux87")]
+position = Vector2(9888, 6144)
+
+[node name="Out" parent="warp doors/world between worlds/floor 1/rift 1" instance=ExtResource("12_pux87")]
+position = Vector2(37570, -2496)
+
+[node name="cycles" type="Node2D" parent="warp doors/world between worlds/floor 1" node_paths=PackedStringArray("in_door", "out_door")]
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0, 0.6, 0.717647, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 1/cycles" instance=ExtResource("12_pux87")]
+position = Vector2(9632, 6144)
+
+[node name="Out" parent="warp doors/world between worlds/floor 1/cycles" instance=ExtResource("12_pux87")]
+position = Vector2(30493, -4096)
+
+[node name="red orb" type="Node2D" parent="warp doors/world between worlds/floor 1" node_paths=PackedStringArray("in_door", "out_door")]
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(1, 1, 0, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 1/red orb" instance=ExtResource("12_pux87")]
+position = Vector2(44512, -256)
+
+[node name="Out" parent="warp doors/world between worlds/floor 1/red orb" instance=ExtResource("12_pux87")]
+position = Vector2(9376, 6144)
+
+[node name="blue trial" type="Node2D" parent="warp doors/world between worlds/floor 1" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(8864, 6144)
+script = ExtResource("11_suls4")
+doors_are_two_way = true
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.883118, 0.821758, 0.0801331, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 1/blue trial" instance=ExtResource("12_pux87")]
+position = Vector2(-128, 0)
+
+[node name="Out" parent="warp doors/world between worlds/floor 1/blue trial" instance=ExtResource("12_pux87")]
+position = Vector2(24448, -10048)
+
+[node name="floor 2" type="Node2D" parent="warp doors/world between worlds"]
+
+[node name="drop" type="Node2D" parent="warp doors/world between worlds/floor 2" node_paths=PackedStringArray("in_door", "out_door")]
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(1, 0, 1, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 2/drop" instance=ExtResource("12_pux87")]
+position = Vector2(16612, 3712)
+
+[node name="Out" parent="warp doors/world between worlds/floor 2/drop" instance=ExtResource("12_pux87")]
+position = Vector2(10080, 6528)
+
+[node name="to 1" type="Node2D" parent="warp doors/world between worlds/floor 2" node_paths=PackedStringArray("in_door", "out_door")]
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(1, 0.419608, 0, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 2/to 1" instance=ExtResource("12_pux87")]
+position = Vector2(10461, 6720)
+
+[node name="Out" parent="warp doors/world between worlds/floor 2/to 1" instance=ExtResource("12_pux87")]
+position = Vector2(9184, 6144)
+
+[node name="alternate entrance" type="Node2D" parent="warp doors/world between worlds/floor 2" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(9696, 6528)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.925959, 0.996073, 0.0735612, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 2/alternate entrance" instance=ExtResource("12_pux87")]
+position = Vector2(6848, -8896)
+
+[node name="Out" parent="warp doors/world between worlds/floor 2/alternate entrance" instance=ExtResource("12_pux87")]
+position = Vector2(-192, 0)
+
+[node name="to color cycles" type="Node2D" parent="warp doors/world between worlds/floor 2" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(9312, 6528)
+script = ExtResource("11_suls4")
+doors_are_two_way = true
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.198952, 0.790022, 0.171731, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 2/to color cycles" instance=ExtResource("12_pux87")]
+position = Vector2(-256, 0)
+
+[node name="Out" parent="warp doors/world between worlds/floor 2/to color cycles" instance=ExtResource("12_pux87")]
+position = Vector2(14656, -4480)
+
+[node name="floor 3" type="Node2D" parent="warp doors/world between worlds"]
+
+[node name="WarpDoorManager" type="Node2D" parent="warp doors/world between worlds/floor 3" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(10208, 6912)
+script = ExtResource("11_suls4")
+doors_are_two_way = true
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.636499, 0.913593, 0.437467, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 3/WarpDoorManager" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/world between worlds/floor 3/WarpDoorManager" instance=ExtResource("12_pux87")]
+position = Vector2(12416, -7744)
+
+[node name="to floor 2" type="Node2D" parent="warp doors/world between worlds/floor 3" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(9952, 6912)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.242559, 0.0955992, 0.591085, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 3/to floor 2" instance=ExtResource("12_pux87")]
+position = Vector2(-128, 0)
+
+[node name="Out" parent="warp doors/world between worlds/floor 3/to floor 2" instance=ExtResource("12_pux87")]
+position = Vector2(-640, -384)
+
+[node name="from walljump area" type="Node2D" parent="warp doors/world between worlds/floor 3" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(-8352, 2304)
+script = ExtResource("11_suls4")
+doors_are_two_way = true
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.742056, 0.139514, 0.18202, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 3/from walljump area" instance=ExtResource("12_pux87")]
+position = Vector2(-64, 0)
+
+[node name="Out" parent="warp doors/world between worlds/floor 3/from walljump area" instance=ExtResource("12_pux87")]
+position = Vector2(17664, 4608)
+
+[node name="key" type="Node2D" parent="warp doors/world between worlds/floor 3" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(36704, -8448)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.493725, 0.0711028, 0.732379, 0.5)
+
+[node name="In" parent="warp doors/world between worlds/floor 3/key" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/world between worlds/floor 3/key" instance=ExtResource("12_pux87")]
+position = Vector2(-27968, 15360)
+
+[node name="frag maze" type="Node2D" parent="warp doors"]
+
+[node name="entrance" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(-1, 0)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.0339233, 0.259591, 0.583798, 0.5)
+
+[node name="In" parent="warp doors/frag maze/entrance" instance=ExtResource("12_pux87")]
+position = Vector2(9889, 6528)
+
+[node name="Out" parent="warp doors/frag maze/entrance" instance=ExtResource("12_pux87")]
+position = Vector2(39264, -7168)
+
+[node name="WarpDoorManager" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.0540715, 0.438229, 0.467953, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager" instance=ExtResource("12_pux87")]
+position = Vector2(40672, -7168)
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager" instance=ExtResource("12_pux87")]
+position = Vector2(40032, -6400)
+
+[node name="WarpDoorManager2" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.402195, 0.808249, 0.726116, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager2" instance=ExtResource("12_pux87")]
+position = Vector2(39712, -6976)
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager2" instance=ExtResource("12_pux87")]
+position = Vector2(40480, -6592)
+
+[node name="WarpDoorManager3" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(39156, -6710)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.635223, 0.309101, 0.912183, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager3" instance=ExtResource("12_pux87")]
+position = Vector2(2284, -266)
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager3" instance=ExtResource("12_pux87")]
+position = Vector2(1900, -74)
+
+[node name="WarpDoorManager4" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40312, -5930)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.446656, 0.455483, 0.589559, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager4" instance=ExtResource("12_pux87")]
+position = Vector2(40, -662)
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager4" instance=ExtResource("12_pux87")]
+position = Vector2(40, -470)
+
+[node name="WarpDoorManager5" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40612, -6735)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.300247, 0.780671, 0.360869, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager5" instance=ExtResource("12_pux87")]
+position = Vector2(-644, -49)
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager5" instance=ExtResource("12_pux87")]
+position = Vector2(-1348, -241)
+
+[node name="WarpDoorManager6" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(41061, -6312)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.75608, 0.454983, 0.371137, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager6" instance=ExtResource("12_pux87")]
+position = Vector2(-1797, -472)
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager6" instance=ExtResource("12_pux87")]
+position = Vector2(-261, -856)
+
+[node name="WarpDoorManager7" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40838, -6415)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.0805193, 0.571256, 0.176643, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager7" instance=ExtResource("12_pux87")]
+position = Vector2(282, 15)
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager7" instance=ExtResource("12_pux87")]
+position = Vector2(90, -369)
+
+[node name="WarpDoorManager8" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40819, -6001)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.162944, 0.519865, 0.391073, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager8" instance=ExtResource("12_pux87")]
+position = Vector2(-979, -783)
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager8" instance=ExtResource("12_pux87")]
+position = Vector2(621, -399)
+
+[node name="WarpDoorManager9" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40800, -6016)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.400324, 0.809864, 0.530337, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager9" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager9" instance=ExtResource("12_pux87")]
+position = Vector2(-64, -192)
+
+[node name="WarpDoorManager10" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40497, -6418)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.469663, 0.244571, 0.474516, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager10" instance=ExtResource("12_pux87")]
+position = Vector2(943, -366)
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager10" instance=ExtResource("12_pux87")]
+position = Vector2(559, 210)
+
+[node name="WarpDoorManager11" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(39264, -6592)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.952043, 0.876066, 0.0850454, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager11" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager11" instance=ExtResource("12_pux87")]
+position = Vector2(960, 384)
+
+[node name="WarpDoorManager12" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(39264, -6400)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.73765, 0.0427257, 0.425699, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager12" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager12" instance=ExtResource("12_pux87")]
+position = Vector2(1728, 0)
+
+[node name="WarpDoorManager13" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40480, -6016)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.0477333, 0.320503, 0.0771734, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager13" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager13" instance=ExtResource("12_pux87")]
+position = Vector2(-768, 192)
+
+[node name="WarpDoorManager14" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(41440, -5824)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.19256, 0.913583, 0.710809, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager14" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager14" instance=ExtResource("12_pux87")]
+position = Vector2(-384, 384)
+
+[node name="WarpDoorManager15" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40480, -6400)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.482915, 0.341291, 0.709378, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager15" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager15" instance=ExtResource("12_pux87")]
+position = Vector2(-448, 384)
+
+[node name="WarpDoorManager16" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(41440, -5440)
+script = ExtResource("11_suls4")
+doors_are_two_way = true
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.596809, 0.910245, 0.832878, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager16" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager16" instance=ExtResource("12_pux87")]
+position = Vector2(-31424, 12352)
+
+[node name="WarpDoorManager17" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(41440, -7168)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.378892, 0.650296, 0.263265, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager17" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager17" instance=ExtResource("12_pux87")]
+position = Vector2(-2177, 0)
+use_sprite = false
+
+[node name="WarpDoorManager18" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(41440, -5632)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.198906, 0.667573, 0.311125, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager18" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager18" instance=ExtResource("12_pux87")]
+position = Vector2(-448, -960)
+
+[node name="WarpDoorManager19" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(39584, -6976)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.244653, 0.453538, 0.902212, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager19" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager19" instance=ExtResource("12_pux87")]
+position = Vector2(64, 576)
+
+[node name="WarpDoorManager20" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40608, -6208)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.652431, 0.644933, 0.586353, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager20" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager20" instance=ExtResource("12_pux87")]
+position = Vector2(-1344, 0)
+
+[node name="WarpDoorManager21" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40864, -6592)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.876224, 0.68457, 0.96476, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager21" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager21" instance=ExtResource("12_pux87")]
+position = Vector2(-1088, 0)
+
+[node name="WarpDoorManager22" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40096, -6592)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.0870216, 0.936843, 0.270736, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager22" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager22" instance=ExtResource("12_pux87")]
+position = Vector2(-448, 384)
+
+[node name="WarpDoorManager23" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40096, -6208)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.390889, 0.284038, 0.00356012, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager23" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager23" instance=ExtResource("12_pux87")]
+position = Vector2(-833, -960)
+use_sprite = false
+
+[node name="WarpDoorManager24" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40608, -6016)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.824647, 0.570455, 0.2029, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager24" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager24" instance=ExtResource("12_pux87")]
+position = Vector2(-512, 576)
+
+[node name="WarpDoorManager25" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(39520, -5632)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.42957, 0.508608, 0.457011, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager25" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager25" instance=ExtResource("12_pux87")]
+position = Vector2(448, 192)
+
+[node name="WarpDoorManager26" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40672, -6016)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.430438, 0.128962, 0.304953, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager26" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager26" instance=ExtResource("12_pux87")]
+position = Vector2(256, 577)
+
+[node name="WarpDoorManager27" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40544, -5440)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.378941, 0.372429, 0.056999, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager27" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager27" instance=ExtResource("12_pux87")]
+position = Vector2(-1280, 0)
+
+[node name="WarpDoorManager28" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(39264, -5632)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.385295, 0.965291, 0.117661, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager28" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager28" instance=ExtResource("12_pux87")]
+position = Vector2(1664, -576)
+
+[node name="WarpDoorManager29" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40928, -5632)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.715157, 0.515673, 0.756507, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager29" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager29" instance=ExtResource("12_pux87")]
+position = Vector2(-1665, -1536)
+use_sprite = false
+
+[node name="WarpDoorManager30" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(40192, -6400)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.957488, 0.696749, 0.643727, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager30" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager30" instance=ExtResource("12_pux87")]
+position = Vector2(-929, -768)
+use_sprite = false
+
+[node name="WarpDoorManager31" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(41440, -5248)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.485884, 0.418692, 0.213941, 0.5)
+
+[node name="In" parent="warp doors/frag maze/WarpDoorManager31" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/frag maze/WarpDoorManager31" instance=ExtResource("12_pux87")]
+position = Vector2(-31744, 11776)
+
+[node name="to double jump" type="Node2D" parent="warp doors" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(35296, -2880)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.172302, 0.562623, 0.917575, 0.5)
+
+[node name="In" parent="warp doors/to double jump" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/to double jump" instance=ExtResource("12_pux87")]
+position = Vector2(-22784, 2944)
+use_sprite = false
+
+[node name="blue trials" type="Node2D" parent="warp doors"]
+
+[node name="to blue orb" type="Node2D" parent="warp doors/blue trials" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(32992, -2816)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.309214, 0.78512, 0.629228, 0.5)
+
+[node name="In" parent="warp doors/blue trials/to blue orb" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/blue trials/to blue orb" instance=ExtResource("12_pux87")]
+position = Vector2(1152, 1152)
+
+[node name="other" type="Node2D" parent="warp doors/blue trials" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(33888, -3712)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.0615589, 0.127569, 0.192409, 0.5)
+
+[node name="In" parent="warp doors/blue trials/other" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/blue trials/other" instance=ExtResource("12_pux87")]
+position = Vector2(-6912, 1728)
+
+[node name="in" type="Node2D" parent="warp doors/blue trials" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(37664, -2240)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.567984, 0.196217, 0.600062, 0.5)
+
+[node name="In" parent="warp doors/blue trials/in" instance=ExtResource("12_pux87")]
+position = Vector2(0, -64)
+
+[node name="Out" parent="warp doors/blue trials/in" instance=ExtResource("12_pux87")]
+position = Vector2(-4736, 512)
+
+[node name="out" type="Node2D" parent="warp doors/blue trials" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(32608, -1728)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.0576831, 0.918786, 0.283517, 0.5)
+
+[node name="In" parent="warp doors/blue trials/out" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/blue trials/out" instance=ExtResource("12_pux87")]
+position = Vector2(-22976, 8640)
+
+[node name="color cycles" type="Node2D" parent="warp doors"]
+
+[node name="WarpDoorManager" type="Node2D" parent="warp doors/color cycles" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(29920, 1152)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.688428, 0.194413, 0.992985, 0.5)
+
+[node name="In" parent="warp doors/color cycles/WarpDoorManager" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/color cycles/WarpDoorManager" instance=ExtResource("12_pux87")]
+position = Vector2(-13056, 2560)
+
+[node name="to walljump" type="Node2D" parent="warp doors/color cycles" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(19168, -448)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.516655, 0.645085, 0.921103, 0.5)
+
+[node name="In" parent="warp doors/color cycles/to walljump" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/color cycles/to walljump" instance=ExtResource("12_pux87")]
+position = Vector2(18752, -1280)
+use_sprite = false
+
+[node name="out of double jump" type="Node2D" parent="warp doors/color cycles" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(37792, -4032)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.690771, 0.530631, 0.784459, 0.5)
+
+[node name="In" parent="warp doors/color cycles/out of double jump" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/color cycles/out of double jump" instance=ExtResource("12_pux87")]
+position = Vector2(-28800, 10176)
+
+[node name="anti-softlock" type="Node2D" parent="warp doors"]
+
+[node name="fall damage pit" type="Node2D" parent="warp doors/anti-softlock" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(23776, -1984)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.249771, 0.0693935, 0.361609, 0.5)
+
+[node name="In" parent="warp doors/anti-softlock/fall damage pit" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/anti-softlock/fall damage pit" instance=ExtResource("12_pux87")]
+position = Vector2(-2048, -960)
+use_sprite = false
+
+[node name="win game" type="Node2D" parent="." node_paths=PackedStringArray("player_area", "hit_label", "timer_label")]
+script = ExtResource("28_yvygb")
+player_area = NodePath("player box")
+hit_label = NodePath("hit")
+timer_label = NodePath("timer label")
+
+[node name="checkpoint" parent="win game" instance=ExtResource("4_ywbjr")]
+position = Vector2(28305, -27316)
+
+[node name="hit" type="Label" parent="win game"]
+offset_left = 28278.0
+offset_top = -27408.0
+offset_right = 28334.0
+offset_bottom = -27379.0
+text = "HIT
+"
+label_settings = SubResource("LabelSettings_2xflx")
+
+[node name="timer label" type="Label" parent="win game"]
+offset_left = 27663.0
+offset_top = -27652.0
+offset_right = 28957.0
+offset_bottom = -27623.0
+text = "You have beaten the game!
+Your time is 123h,46min,32sec"
+label_settings = SubResource("LabelSettings_w2twl")
+horizontal_alignment = 1
+
+[node name="player box" type="Area2D" parent="win game"]
+position = Vector2(28305, -27316)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win game/player box"]
+shape = SubResource("RectangleShape2D_ow4da")
+
+[node name="player" parent="." instance=ExtResource("5_tt0wr")]
+process_priority = -2
+position = Vector2(-7040, -9985)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="area name label" type="Label" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -53.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_iv2ji")
+horizontal_alignment = 2
+script = ExtResource("6_k6aad")
+
+[node name="scripts" type="Node2D" parent="."]
+
+[node name="map helper" type="Node2D" parent="scripts" node_paths=PackedStringArray("map")]
+script = ExtResource("1_m16e6")
+map = NodePath("../../map")
+ground_layer_name = &"solid"
+death_layer_name = &"death"
+
+[node name="game loader" type="Node2D" parent="scripts"]
+script = ExtResource("2_yo2n1")
+
+[node name="CycleTimer" type="Node" parent="scripts"]
+script = ExtResource("17_8w0ap")
+
+[node name="GameTimer" type="Node" parent="scripts"]
+script = ExtResource("33_vl5ma")
+
+[connection signal="body_entered" from="menu/text/pause menu/resume" to="menu/text/pause menu" method="_area_body_entered" binds= [true]]
+[connection signal="body_entered" from="menu/text/pause menu/quit" to="menu/text/pause menu" method="_area_body_entered" binds= [false]]
+[connection signal="body_entered" from="menu/areas/hard items" to="menu" method="give_hard_items"]

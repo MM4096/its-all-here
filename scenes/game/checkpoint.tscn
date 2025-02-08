@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2n5co5sxkqh1"]
+
+[ext_resource type="Script" path="res://scripts/checkpoint/checkpoint.gd" id="1_boijf"]
+[ext_resource type="Texture2D" uid="uid://bgulogsh605tq" path="res://images/objects/checkpoint.png" id="2_kuqff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1lqk"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6p7h"]
+atlas = ExtResource("2_kuqff")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga7a4"]
+atlas = ExtResource("2_kuqff")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekrqc"]
+atlas = ExtResource("2_kuqff")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3l44"]
+atlas = ExtResource("2_kuqff")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u4yd"]
+atlas = ExtResource("2_kuqff")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7w7d2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6p7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga7a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekrqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3l44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u4yd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve" id="Curve_r4w4t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.711382, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_8b6y7"]
+offsets = PackedFloat32Array(0, 0.846154, 1)
+colors = PackedColorArray(0.454902, 0, 0.498039, 1, 0.34902, 0, 0.380392, 1, 0, 0, 0, 0)
+
+[node name="checkpoint" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_boijf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n1lqk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_7w7d2")
+autoplay = "default"
+frame_progress = 0.142134
+
+[node name="player particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+linear_accel_min = -200.0
+linear_accel_max = -100.0
+scale_amount_min = 2.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_r4w4t")
+color_ramp = SubResource("Gradient_8b6y7")

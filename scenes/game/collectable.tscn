@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj30am6p2m87q"]
+
+[ext_resource type="Script" path="res://scripts/objects/collectable/collectable.gd" id="1_mmo6v"]
+[ext_resource type="Texture2D" uid="uid://bsg6k73w6o1vl" path="res://images/objects/collectables/purple_orb.png" id="2_fdwy4"]
+[ext_resource type="Shader" uid="uid://d2kqo0v11qxdh" path="res://shaders/collectable_shine.tres" id="2_s601h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r0dot"]
+radius = 32.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bu48l"]
+shader = ExtResource("2_s601h")
+
+[node name="collectable" type="Area2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_mmo6v")
+sprite = NodePath("Sprite2D")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r0dot")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bu48l")
+scale = Vector2(4, 4)
+texture = ExtResource("2_fdwy4")

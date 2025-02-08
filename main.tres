@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dthx4ugr3fnvh"]
+
+[ext_resource type="FontFile" uid="uid://bmxwn333mlxn0" path="res://fonts/pixel.ttf" id="1_l2ha4"]
+
+[resource]
+Button/fonts/font = ExtResource("1_l2ha4")
+Label/fonts/font = ExtResource("1_l2ha4")
+LineEdit/fonts/font = ExtResource("1_l2ha4")
+RichTextLabel/fonts/normal_font = ExtResource("1_l2ha4")

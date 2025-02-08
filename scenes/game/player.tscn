@@ -1,0 +1,266 @@
+[gd_scene load_steps=30 format=3 uid="uid://bumlammd0u6dw"]
+
+[ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_j2oic"]
+[ext_resource type="Script" path="res://scripts/player/player_tracker.gd" id="2_41e2k"]
+[ext_resource type="Texture2D" uid="uid://b5vaix33jouch" path="res://icon.svg" id="3_lovuf"]
+[ext_resource type="Script" path="res://scripts/player/item_handler.gd" id="4_w4pif"]
+[ext_resource type="Script" path="res://scripts/player/player_gravity_box.gd" id="5_jc16b"]
+[ext_resource type="Texture2D" uid="uid://7ihke8ywjp5b" path="res://images/player/player.png" id="6_h0i32"]
+[ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="7_7ythd"]
+[ext_resource type="Script" path="res://scripts/player/particles/player_death_particles.gd" id="8_cw56r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5oh1"]
+radius = 31.5
+height = 127.0
+
+[sub_resource type="Curve" id="Curve_ak5sy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4, 0), 0.0, 0.0, 0, 0, Vector2(0.95, 0.1), 0.0, 0.0, 0, 0, Vector2(0.975, 0.45), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+metadata/_snap_enabled = true
+metadata/_snap_count = 40
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_otlmh"]
+radius = 24.0
+height = 114.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sviis"]
+size = Vector2(5, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txbap"]
+size = Vector2(5, 75)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6glfm"]
+radius = 28.0
+height = 120.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf65x"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(88, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eh6e"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(104, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ym8g"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(112, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntflf"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(120, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvt4o"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(128, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx7lq"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(72, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxydj"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(0, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soea2"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(8, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mqy3"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(16, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tse5j"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(24, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yycyr"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(32, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frb0r"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(40, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05fq5"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(48, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptcxx"]
+atlas = ExtResource("6_h0i32")
+region = Rect2(56, 0, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nrewp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf65x")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eh6e")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_5ym8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntflf")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_uvt4o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx7lq")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxydj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soea2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mqy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tse5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yycyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frb0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05fq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptcxx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("death_box", "death_collision_shape", "collision_shape", "gravity_box", "tracker", "left_walljump_area", "right_walljump_area", "raycast_ground_left", "raycast_ground_right", "raycast_ground_up", "raycast_ground_down")]
+collision_layer = 2
+script = ExtResource("1_j2oic")
+gravity = 5000.0
+max_speed = 500.0
+jump_velocity = -1500.0
+acceleration = 2000.0
+deaccel_speed = 2500.0
+jump_deaccel_speed = 7500.0
+kill_velocity = 1625.0
+death_box = NodePath("death box")
+death_collision_shape = NodePath("death box/CollisionShape2D")
+collision_shape = NodePath("collision")
+gravity_box = NodePath("gravity area")
+tracker = NodePath("tracker/Sprite2D")
+fall_velocity = 1700.0
+double_jump_velocity = -1100.0
+double_jump_max_fall_velocity = 1920.0
+left_walljump_area = NodePath("overlaps/walljump_left")
+right_walljump_area = NodePath("overlaps/walljump_right")
+walljump_vertical_velocity = -1600.0
+walljump_horizontal_velocity = 1000.0
+slide_speed = 200.0
+raycast_ground_left = NodePath("raycasts/left")
+raycast_ground_right = NodePath("raycasts/right")
+raycast_ground_up = NodePath("raycasts/up")
+raycast_ground_down = NodePath("raycasts/down")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_i5oh1")
+debug_color = Color(0.552941, 0.564706, 0, 0)
+
+[node name="tracker" type="Node2D" parent="." node_paths=PackedStringArray("player_reference")]
+script = ExtResource("2_41e2k")
+player_reference = NodePath("..")
+forwards_position_max = 75.0
+smooth_speed = 500.0
+distance_to_speed_curve = SubResource("Curve_ak5sy")
+
+[node name="Sprite2D" type="Sprite2D" parent="tracker"]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_lovuf")
+
+[node name="death box" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death box"]
+shape = SubResource("CapsuleShape2D_otlmh")
+debug_color = Color(0.882353, 0, 0.815686, 0)
+
+[node name="scripts" type="Node2D" parent="."]
+
+[node name="ItemHandler" type="Node2D" parent="scripts"]
+script = ExtResource("4_w4pif")
+
+[node name="overlaps" type="Node2D" parent="."]
+
+[node name="walljump_left" type="Area2D" parent="overlaps"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="overlaps/walljump_left"]
+position = Vector2(-34.5, 0)
+shape = SubResource("RectangleShape2D_sviis")
+
+[node name="walljump_right" type="Area2D" parent="overlaps"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="overlaps/walljump_right"]
+position = Vector2(35, 0)
+shape = SubResource("RectangleShape2D_txbap")
+
+[node name="gravity area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 32
+script = ExtResource("5_jc16b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gravity area"]
+shape = SubResource("CapsuleShape2D_6glfm")
+debug_color = Color(0.708918, 0.265853, 1, 0)
+
+[node name="raycasts" type="Node2D" parent="."]
+
+[node name="down" type="RayCast2D" parent="raycasts"]
+target_position = Vector2(0, 128)
+
+[node name="up" type="RayCast2D" parent="raycasts"]
+target_position = Vector2(0, -128)
+
+[node name="right" type="RayCast2D" parent="raycasts"]
+target_position = Vector2(64, 0)
+
+[node name="left" type="RayCast2D" parent="raycasts"]
+target_position = Vector2(-64, 0)
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_nrewp")
+animation = &"walk"
+autoplay = "walk"
+script = ExtResource("7_7ythd")
+
+[node name="death particles" type="Node2D" parent="."]
+script = ExtResource("8_cw56r")

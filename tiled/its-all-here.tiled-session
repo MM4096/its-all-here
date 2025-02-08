@@ -1,0 +1,161 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "tileset/generic.tsx",
+    "automapping.whileDrawing": false,
+    "expandedProjectPaths": [
+        "automap",
+        "tileset",
+        "maps",
+        "."
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        ":/automap-tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "automap/appearing_blocks.tmx": {
+            "scale": 1,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 244.5,
+                "y": 154
+            }
+        },
+        "automap/background_automap.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 59,
+                "y": 42.33333333333337
+            }
+        },
+        "automap/ground_automap.tmx": {
+            "scale": 0.25,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 512,
+                "y": 2046
+            }
+        },
+        "automap/spikes_automap.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 0,
+                "y": -0.6666666666666288
+            }
+        },
+        "automap/timer_blocks_automap.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 31.5,
+                "y": 31.5
+            }
+        },
+        "maps/ground.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": -24,
+                "y": 496
+            }
+        },
+        "maps/map.tmx": {
+            "expandedGroupLayers": [
+                28
+            ],
+            "scale": 0.015625,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 17376,
+                "y": -8224
+            }
+        },
+        "maps/parallax_background.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1324,
+                "y": -3068
+            }
+        },
+        "tileset/appearing blocks.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "tileset/collisions.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tileset/death_generic.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tileset/generic.tsx": {
+            "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "tileset/ground.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tileset/ground_generic.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tileset/ground_tilemap.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 0.75
+        },
+        "tileset/spikes.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tileset/tiles.tsx": {
+            "scaleInDock": 0.33,
+            "scaleInEditor": 0.75
+        }
+    },
+    "last.externalTilesetPath": "/home/coding/dev/repo/Godot/platformer/tiled/tileset",
+    "last.imagePath": "/home/coding/dev/repo/Godot/platformer/images/tilesets",
+    "map.fixedSize": false,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 64,
+    "map.tileWidth": 64,
+    "openFiles": [
+        "maps/map.tmx",
+        "automap/timer_blocks_automap.tmx",
+        "tileset/appearing blocks.tsx",
+        "automap/ground_automap.tmx",
+        "automap/spikes_automap.tmx",
+        "tileset/generic.tsx"
+    ],
+    "project": "its-all-here.tiled-project",
+    "property.type": "int",
+    "recentFiles": [
+        "maps/map.tmx",
+        "automap/timer_blocks_automap.tmx",
+        "tileset/appearing blocks.tsx",
+        "automap/ground_automap.tmx",
+        "automap/spikes_automap.tmx",
+        "tileset/generic.tsx",
+        "maps/parallax_background.tmx",
+        "automap/background_automap.tmx",
+        "tileset/spikes.tsx",
+        "tileset/ground_tilemap.tsx",
+        "automap/appearing_blocks.tmx",
+        "tileset/ground.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 64,
+        "width": 64
+    }
+}
