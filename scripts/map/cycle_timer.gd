@@ -8,6 +8,8 @@ var current_countdown: float = 0
 var current_index: int = 1
 
 func _process(delta: float) -> void:
+	if (PauseMenu.is_paused): return
+
 	current_countdown -= delta
 	if current_countdown < 0:
 		current_countdown = cycle_time

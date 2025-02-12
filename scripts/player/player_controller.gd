@@ -241,6 +241,7 @@ func set_player_position(location: Vector2, instant: bool = true, time: float = 
 	await get_tree().physics_frame
 	self.global_position = location
 	jump_start_y_position = self.global_position.y
+	self.velocity = Vector2.ZERO
 	await get_tree().physics_frame
 	collision_shape.set_deferred("disabled", false)
 	death_collision_shape.set_deferred("disabled", false)

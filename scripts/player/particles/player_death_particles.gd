@@ -14,6 +14,11 @@ func create_particles(number: int = 48) -> void:
 		#this_body.linear_velocity = Vector2(randf_range(-, 5), randf_range(-5, 5))
 		this_body.global_position += Vector2(randi_range(-24, 24), randi_range(-48, 48))
 		self.add_child(this_body)
+	for i in 2:
+		var this_body: RigidBody2D = _create_item(Color.YELLOW)
+		#this_body.linear_velocity = Vector2(randf_range(-, 5), randf_range(-5, 5))
+		this_body.global_position += Vector2(randi_range(-24, 24), randi_range(-48, 48))
+		self.add_child(this_body)
 
 func delete_all_particles() -> void:
 	for i in self.get_children():

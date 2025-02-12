@@ -618,6 +618,16 @@ The standard game as
 Rules are very strict"
 label_settings = SubResource("LabelSettings_hkhsg")
 
+[node name="hard description2" type="Label" parent="menu/text/game_type"]
+offset_left = -3193.0
+offset_top = -10211.0
+offset_right = -2616.0
+offset_bottom = -10114.0
+text = "              Harder Hards →
+
+Standard Hard ↓"
+label_settings = SubResource("LabelSettings_hkhsg")
+
 [node name="back" type="Label" parent="menu/text/game_type"]
 offset_left = -4151.0
 offset_top = -10013.0

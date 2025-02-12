@@ -4,7 +4,7 @@ extends Node2D
 @export var place_player_location: Node2D
 @export var menu_location: Node2D
 
-var is_paused: bool = false
+static var is_paused: bool = false
 var cached_player_velocity: Vector2 = Vector2.ZERO
 var cached_player_position: Vector2 = Vector2.ZERO
 var cached_start_y_position: float = 0
