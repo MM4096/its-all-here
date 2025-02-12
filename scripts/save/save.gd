@@ -30,6 +30,9 @@ func load_objects() -> void:
 	Player.instance.respawn_location = save_file.get_value("player", "position")
 	Player.instance.gravity_direction = save_file.get_value("player", "gravity_direction")
 	Player.instance.set_player_position(save_file.get_value("player", "position"))
+
+	Player.instance.death_count = save_file.get_value("other info", "deaths", 0)
+
 	ItemHandler.instance.set_collected_items(save_file.get_value("player", "items"))
 
 	GameTimer.time += save_file.get_value("other info", "time", 0)
@@ -46,6 +49,7 @@ func save_data() -> void:
 	save_file.set_value("player", "items", ItemHandler.instance.collected_items)
 
 	save_file.set_value("other info", "time", GameTimer.time)
+	save_file.set_value("other info", "deaths", Player.instance.death_count)
 
 	save_file.save_encrypted_pass(save_path, _ENCRYPT_PASS)
 

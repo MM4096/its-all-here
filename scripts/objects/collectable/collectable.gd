@@ -19,6 +19,9 @@ extends Area2D
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		self.body_entered.connect(_on_body_enterd)
+	if item_sprite == null:
+		sprite.texture = null
+
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint(): return

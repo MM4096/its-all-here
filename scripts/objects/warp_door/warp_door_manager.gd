@@ -71,14 +71,12 @@ func _teleport_player(object: Node2D, sender: WarpDoor) -> void:
 	if sender == in_door:
 		Player.instance.set_player_position(out_door.global_position)
 		Player.instance.velocity = Vector2.ZERO
-		print("Teleporting IN DOOR")
 	elif doors_are_two_way:
 		var final_position: Vector2 = out_door.global_position
 		if sender == out_door:
 			final_position = in_door.global_position
 		Player.instance.set_player_position(final_position)
 		Player.instance.velocity = Vector2.ZERO
-		print("Teleporting OUT DOOR")
 
 	in_door.require_refresh = true
 	out_door.require_refresh = true

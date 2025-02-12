@@ -99,6 +99,9 @@ var use_fall_velocity_for_death_calculation: bool = false
 ## Is the user currently in the death scene?
 var is_in_death_scene: bool = false
 
+## Number of deaths the player has sufferred
+var death_count: int = 0
+
 func _init() -> void:
 	instance = self
 
@@ -217,6 +220,7 @@ func _physics_process(delta: float) -> void:
 
 ## Function to kill the player
 func do_death() -> void:
+	death_count += 1
 	self.velocity = Vector2.ZERO
 
 	is_in_death_scene = true

@@ -132,7 +132,7 @@ size = Vector2(1819, 3157)
 size = Vector2(561, 1221)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1vh7"]
-size = Vector2(1466, 947)
+size = Vector2(1466, 1015.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcxix"]
 size = Vector2(362, 947)
@@ -590,10 +590,10 @@ horizontal_alignment = 1
 [node name="game_type" type="Node2D" parent="menu/text"]
 
 [node name="Label" type="Label" parent="menu/text/game_type"]
-offset_left = -3945.0
-offset_top = -10090.0
-offset_right = -3622.0
-offset_bottom = -10068.0
+offset_left = -3993.0
+offset_top = -10084.0
+offset_right = -3670.0
+offset_bottom = -10062.0
 text = "Select your difficulity"
 label_settings = SubResource("LabelSettings_hkhsg")
 
@@ -1417,7 +1417,7 @@ offset_left = 25187.0
 offset_top = -3252.0
 offset_right = 25890.0
 offset_bottom = -3130.0
-text = "If you are doing the \"Easy\" version, 
+text = "If you are doing the \"Normal\" version, 
     you can survive after jumping off a high ledge
 
 However, if you are doing the \"Hard\" version,
@@ -1483,7 +1483,7 @@ script = ExtResource("3_0y7qx")
 area_name = "Congratualations"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area name triggers/Congratualations"]
-position = Vector2(573, -242)
+position = Vector2(573, -207.75)
 shape = SubResource("RectangleShape2D_v1vh7")
 debug_color = Color(0.870588, 0, 0.847059, 0)
 
@@ -2368,6 +2368,9 @@ position = Vector2(29144, -13087)
 [node name="checkpoint37" parent="checkpoints" instance=ExtResource("4_ywbjr")]
 position = Vector2(36412, -20830)
 
+[node name="checkpoint38" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(33009, -18385)
+
 [node name="obstacles" type="Node2D" parent="."]
 
 [node name="cycles" type="Node2D" parent="obstacles"]
@@ -2387,26 +2390,26 @@ debug_color = Color(0.666667, 0.666667, 0, 0)
 [node name="death orb" parent="obstacles/cycles" instance=ExtResource("8_rfdk1")]
 position = Vector2(27761, -3143)
 points = Array[Vector2]([Vector2(0, 130), Vector2(0, -180)])
-speed = 500.0
+speed = 300.0
 despawn_distance = -1.0
 enabled = false
 
 [node name="death orb2" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
 position = Vector2(27833, -3143)
 points = Array[Vector2]([Vector2(0, 130), Vector2(0, -180)])
-speed = 500.0
+speed = 300.0
 despawn_linked_orb = NodePath("../death orb")
 
 [node name="death orb3" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
 position = Vector2(27899, -3143)
 points = Array[Vector2]([Vector2(0, 130), Vector2(0, -180)])
-speed = 500.0
+speed = 300.0
 despawn_linked_orb = NodePath("../death orb")
 
 [node name="death orb4" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
 position = Vector2(27961, -3143)
 points = Array[Vector2]([Vector2(0, 130), Vector2(0, -180)])
-speed = 500.0
+speed = 300.0
 despawn_linked_orb = NodePath("../death orb")
 
 [node name="death orb6" parent="obstacles/cycles" node_paths=PackedStringArray("despawn_linked_orb") instance=ExtResource("8_rfdk1")]
@@ -3631,6 +3634,7 @@ position = Vector2(64, 576)
 [node name="WarpDoorManager20" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
 position = Vector2(40608, -6208)
 script = ExtResource("11_suls4")
+doors_are_two_way = true
 in_door = NodePath("In")
 out_door = NodePath("Out")
 debug_color_of_door = Color(0.652431, 0.644933, 0.586353, 0.5)

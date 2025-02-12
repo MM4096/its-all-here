@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 
 		var time_display: String = "%sh,%smin,%ssec" % [hours, minutes, seconds]
 
-		timer_label.text = "You have completed the game!\nYour time was %s\n%s" % [time_display, "Hard mode completed!" if is_hard_mode else ""]
+		timer_label.text = "You have completed the game!\nYour time was %s\nYou died a total of %s times\n\n%s" % [time_display, Player.instance.death_count, "Hard mode completed!" if is_hard_mode else ""]
 
 func _player_entered(_body: Node2D) -> void:
 	SaveSystem.finished_game()
