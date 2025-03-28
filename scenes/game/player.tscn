@@ -1,13 +1,13 @@
 [gd_scene load_steps=30 format=3 uid="uid://bumlammd0u6dw"]
 
-[ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_j2oic"]
-[ext_resource type="Script" path="res://scripts/player/player_tracker.gd" id="2_41e2k"]
+[ext_resource type="Script" uid="uid://hlhsgi3dghyl" path="res://scripts/player/player_controller.gd" id="1_j2oic"]
+[ext_resource type="Script" uid="uid://chmvc4k8wnok8" path="res://scripts/player/player_tracker.gd" id="2_41e2k"]
 [ext_resource type="Texture2D" uid="uid://b5vaix33jouch" path="res://icon.svg" id="3_lovuf"]
-[ext_resource type="Script" path="res://scripts/player/item_handler.gd" id="4_w4pif"]
-[ext_resource type="Script" path="res://scripts/player/player_gravity_box.gd" id="5_jc16b"]
+[ext_resource type="Script" uid="uid://b5k57f3oraxo" path="res://scripts/player/item_handler.gd" id="4_w4pif"]
+[ext_resource type="Script" uid="uid://f7628ks0lgw3" path="res://scripts/player/player_gravity_box.gd" id="5_jc16b"]
 [ext_resource type="Texture2D" uid="uid://7ihke8ywjp5b" path="res://images/player/player.png" id="6_h0i32"]
-[ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="7_7ythd"]
-[ext_resource type="Script" path="res://scripts/player/particles/player_death_particles.gd" id="8_cw56r"]
+[ext_resource type="Script" uid="uid://cw0jrmpus3e0q" path="res://scripts/player/player_animation.gd" id="7_7ythd"]
+[ext_resource type="Script" uid="uid://q3fgcusoo2xr" path="res://scripts/player/particles/player_death_particles.gd" id="8_cw56r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5oh1"]
 radius = 31.5

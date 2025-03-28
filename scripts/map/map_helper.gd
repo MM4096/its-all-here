@@ -14,7 +14,7 @@ func _init() -> void:
 func _ready() -> void:
 	for i in map.get_children():
 		if i is TileMapLayer:
-			if i.name == ground_layer_name:
+			if i.name.contains(ground_layer_name):
 				i.tile_set = i.tile_set.duplicate(true)
 				i.tile_set.set_physics_layer_collision_layer(0, 1)
 			elif i.name == death_layer_name:

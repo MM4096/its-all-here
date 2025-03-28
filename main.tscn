@@ -1,32 +1,32 @@
 [gd_scene load_steps=181 format=3 uid="uid://cb02yxiojlmjl"]
 
-[ext_resource type="Script" path="res://scripts/menu/menu_script.gd" id="1_8pcci"]
+[ext_resource type="Script" uid="uid://wjh0f8joydnc" path="res://scripts/menu/menu_script.gd" id="1_8pcci"]
 [ext_resource type="PackedScene" uid="uid://b8lhv6unruopp" path="res://scenes/game/menu_door.tscn" id="1_jawqs"]
-[ext_resource type="Script" path="res://scripts/map/map_helper.gd" id="1_m16e6"]
+[ext_resource type="Script" uid="uid://dv753t17b80a1" path="res://scripts/map/map_helper.gd" id="1_m16e6"]
 [ext_resource type="PackedScene" uid="uid://buodyk8237l14" path="res://tiled/maps/map.tmx" id="1_usmcx"]
-[ext_resource type="Script" path="res://scripts/pause_menu/pause_menu.gd" id="2_dhfay"]
-[ext_resource type="Script" path="res://scripts/camera/game_camera.gd" id="2_uustn"]
-[ext_resource type="Script" path="res://scripts/save/game_loader.gd" id="2_yo2n1"]
-[ext_resource type="Script" path="res://scripts/ui/area_name_trigger.gd" id="3_0y7qx"]
+[ext_resource type="Script" uid="uid://4otoby6u5b4p" path="res://scripts/pause_menu/pause_menu.gd" id="2_dhfay"]
+[ext_resource type="Script" uid="uid://yaurmkv0vwo6" path="res://scripts/camera/game_camera.gd" id="2_uustn"]
+[ext_resource type="Script" uid="uid://dmstl233xe71j" path="res://scripts/save/game_loader.gd" id="2_yo2n1"]
+[ext_resource type="Script" uid="uid://dq4nroqgcdjwe" path="res://scripts/ui/area_name_trigger.gd" id="3_0y7qx"]
 [ext_resource type="Texture2D" uid="uid://wo8jvtekened" path="res://images/objects/menu_door.png" id="3_dc2r0"]
-[ext_resource type="Script" path="res://scripts/objects/area/menu/quit_game_area.gd" id="4_qkjaf"]
+[ext_resource type="Script" uid="uid://b25piw7tcdvaf" path="res://scripts/objects/area/menu/quit_game_area.gd" id="4_qkjaf"]
 [ext_resource type="PackedScene" uid="uid://d2n5co5sxkqh1" path="res://scenes/game/checkpoint.tscn" id="4_ywbjr"]
 [ext_resource type="Texture2D" uid="uid://b3qk130kwl7x8" path="res://images/white.png" id="5_e42tl"]
-[ext_resource type="Script" path="res://scripts/menu/blocker.gd" id="5_gve3x"]
+[ext_resource type="Script" uid="uid://cwfedaa5rl42c" path="res://scripts/menu/blocker.gd" id="5_gve3x"]
 [ext_resource type="PackedScene" uid="uid://bumlammd0u6dw" path="res://scenes/game/player.tscn" id="5_tt0wr"]
-[ext_resource type="Script" path="res://scripts/ui/area_name.gd" id="6_k6aad"]
-[ext_resource type="Script" path="res://scripts/objects/area/trigger_area.gd" id="7_2ad0w"]
+[ext_resource type="Script" uid="uid://dd7a5ypa5k7nv" path="res://scripts/ui/area_name.gd" id="6_k6aad"]
+[ext_resource type="Script" uid="uid://cs8xnu1wc8fcc" path="res://scripts/objects/area/trigger_area.gd" id="7_2ad0w"]
 [ext_resource type="PackedScene" uid="uid://bj30am6p2m87q" path="res://scenes/game/collectable.tscn" id="7_mx21e"]
-[ext_resource type="Script" path="res://scripts/objects/area/area_method.gd" id="8_dyivc"]
+[ext_resource type="Script" uid="uid://cm0ce1kifwnab" path="res://scripts/objects/area/area_method.gd" id="8_dyivc"]
 [ext_resource type="PackedScene" uid="uid://c3dyekts4m1l" path="res://death_orb.tscn" id="8_rfdk1"]
-[ext_resource type="Script" path="res://scripts/objects/area/objects/move_death_orb.gd" id="9_qdhkb"]
-[ext_resource type="Script" path="res://scripts/objects/area/objects/death_orb_status.gd" id="10_bqkjg"]
-[ext_resource type="Script" path="res://scripts/objects/area/objects/cycle_timer_area.gd" id="11_5dynm"]
-[ext_resource type="Script" path="res://scripts/objects/warp_door/warp_door_manager.gd" id="11_suls4"]
+[ext_resource type="Script" uid="uid://7m6v2gtpqno4" path="res://scripts/objects/area/objects/move_death_orb.gd" id="9_qdhkb"]
+[ext_resource type="Script" uid="uid://c3jkrhf1vfuo0" path="res://scripts/objects/area/objects/death_orb_status.gd" id="10_bqkjg"]
+[ext_resource type="Script" uid="uid://cknulytciplgy" path="res://scripts/objects/area/objects/cycle_timer_area.gd" id="11_5dynm"]
+[ext_resource type="Script" uid="uid://qhosvt3tme43" path="res://scripts/objects/warp_door/warp_door_manager.gd" id="11_suls4"]
 [ext_resource type="PackedScene" uid="uid://c1hq2lvs5gfv6" path="res://scenes/game/warp_door.tscn" id="12_pux87"]
 [ext_resource type="Texture2D" uid="uid://bsg6k73w6o1vl" path="res://images/objects/collectables/purple_orb.png" id="15_iexr4"]
 [ext_resource type="Texture2D" uid="uid://crjldwe11lugm" path="res://images/objects/collectables/warp_orb.png" id="16_sp0x2"]
-[ext_resource type="Script" path="res://scripts/map/cycle_timer.gd" id="17_8w0ap"]
+[ext_resource type="Script" uid="uid://b52a7l51mcduq" path="res://scripts/map/cycle_timer.gd" id="17_8w0ap"]
 [ext_resource type="Texture2D" uid="uid://da8fvhcemokkv" path="res://images/objects/collectables/pink_orb.png" id="17_jpsn1"]
 [ext_resource type="Texture2D" uid="uid://cgrtsbcqlcxed" path="res://images/objects/collectables/yellow_orb.png" id="18_en0ds"]
 [ext_resource type="Texture2D" uid="uid://cy1ctukrm65ji" path="res://images/objects/collectables/double_jump.png" id="19_np0pf"]
@@ -34,8 +34,8 @@
 [ext_resource type="Texture2D" uid="uid://dd6rirmsi20x7" path="res://images/objects/collectables/wall_jump.png" id="21_6ge8a"]
 [ext_resource type="Texture2D" uid="uid://dxsv23gl4nfry" path="res://images/objects/collectables/gravity_orb.png" id="22_sssds"]
 [ext_resource type="Texture2D" uid="uid://dv15q5cqryba5" path="res://images/objects/collectables/key.png" id="23_1lq1j"]
-[ext_resource type="Script" path="res://scripts/win_handler/win_area.gd" id="28_yvygb"]
-[ext_resource type="Script" path="res://scripts/win_handler/timer.gd" id="33_vl5ma"]
+[ext_resource type="Script" uid="uid://2vkuu6pwla6g" path="res://scripts/win_handler/win_area.gd" id="28_yvygb"]
+[ext_resource type="Script" uid="uid://3t4nj2eeg4v0" path="res://scripts/win_handler/timer.gd" id="33_vl5ma"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h7q5d"]
 font_size = 64
@@ -626,6 +626,15 @@ offset_bottom = -10114.0
 text = "              Harder Hards →
 
 Standard Hard ↓"
+label_settings = SubResource("LabelSettings_hkhsg")
+
+[node name="9 lives" type="Label" parent="menu/text/game_type"]
+offset_left = -2645.0
+offset_top = -10170.0
+offset_right = -2068.0
+offset_bottom = -10073.0
+text = "         Work in Progress ↓
+       Map remix ↓"
 label_settings = SubResource("LabelSettings_hkhsg")
 
 [node name="back" type="Label" parent="menu/text/game_type"]

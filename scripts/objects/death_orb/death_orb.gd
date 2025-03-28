@@ -32,6 +32,8 @@ extends Area2D
 @export var particles: CPUParticles2D
 ## Collision shape reference
 @export var collision_shape: CollisionShape2D
+## Reference to the collision shape of the player death area
+@export var player_death_collision_shape: CollisionShape2D
 
 ## The gradient of lines to draw
 var line_gradient: Gradient = Gradient.new()
@@ -76,6 +78,7 @@ func _process(delta: float) -> void:
 	particles.emitting = enabled
 
 	collision_shape.disabled = not enabled
+	player_death_collision_shape.disabled = not enabled
 	visible = enabled
 
 	if !enabled: return

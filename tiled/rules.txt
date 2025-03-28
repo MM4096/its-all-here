@@ -1,3 +1,4 @@
 automap/ground_automap.tmx
+automap/ground_alt_automap.tmx
 automap/spikes_automap.tmx
 automap/timer_blocks_automap.tmx

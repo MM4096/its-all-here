@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://c1hq2lvs5gfv6"]
 
 [ext_resource type="Texture2D" uid="uid://dlltf4dy8yiid" path="res://images/objects/warp/empty_door.png" id="1_b8m0d"]
-[ext_resource type="Script" path="res://scripts/objects/warp_door/warp_door.gd" id="1_jnw15"]
+[ext_resource type="Script" uid="uid://dt6fhd4e15k8k" path="res://scripts/objects/warp_door/warp_door.gd" id="1_jnw15"]
 [ext_resource type="Texture2D" uid="uid://ccphw3viurf5e" path="res://images/objects/warp/warp_door_sheet.png" id="2_7lb10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5byq"]
