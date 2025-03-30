@@ -26,3 +26,6 @@ func _start_game(body: Node) -> void:
 
 func give_hard_items(body: Node2D) -> void:
 	ItemHandler.instance.item_collected("hard-mode")
+
+func give_alt_items(body: Node2D) -> void:
+	ItemHandler.instance.item_collected("alt-map")

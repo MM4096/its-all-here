@@ -1,4 +1,4 @@
-[gd_scene load_steps=181 format=3 uid="uid://cb02yxiojlmjl"]
+[gd_scene load_steps=182 format=3 uid="uid://cb02yxiojlmjl"]
 
 [ext_resource type="Script" uid="uid://wjh0f8joydnc" path="res://scripts/menu/menu_script.gd" id="1_8pcci"]
 [ext_resource type="PackedScene" uid="uid://b8lhv6unruopp" path="res://scenes/game/menu_door.tscn" id="1_jawqs"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://dxsv23gl4nfry" path="res://images/objects/collectables/gravity_orb.png" id="22_sssds"]
 [ext_resource type="Texture2D" uid="uid://dv15q5cqryba5" path="res://images/objects/collectables/key.png" id="23_1lq1j"]
 [ext_resource type="Script" uid="uid://2vkuu6pwla6g" path="res://scripts/win_handler/win_area.gd" id="28_yvygb"]
+[ext_resource type="Script" uid="uid://dd16g0q775ucy" path="res://scripts/helper/alt_warp_doors.gd" id="30_b1qrp"]
 [ext_resource type="Script" uid="uid://3t4nj2eeg4v0" path="res://scripts/win_handler/timer.gd" id="33_vl5ma"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h7q5d"]
@@ -79,42 +80,6 @@ size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7u3s"]
 size = Vector2(64, 64)
-
-[sub_resource type="LabelSettings" id="LabelSettings_4tgsn"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_2uv5b"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_k837h"]
-font_color = Color(1, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_f74bi"]
-font_size = 48
-
-[sub_resource type="LabelSettings" id="LabelSettings_mn8a3"]
-font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_37a6g"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_kwogi"]
-font_size = 52
-
-[sub_resource type="LabelSettings" id="LabelSettings_lmwrn"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_1qpxc"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_3muav"]
-font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_cs32v"]
-font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_cb6o2"]
-font_size = 24
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jb3b8"]
 size = Vector2(2860, 2277)
@@ -504,6 +469,42 @@ speed = -1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66ps7"]
 size = Vector2(7557, 7147)
 
+[sub_resource type="LabelSettings" id="LabelSettings_4tgsn"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_2uv5b"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_k837h"]
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f74bi"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_mn8a3"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_37a6g"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwogi"]
+font_size = 52
+
+[sub_resource type="LabelSettings" id="LabelSettings_lmwrn"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_1qpxc"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_3muav"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_cs32v"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_cb6o2"]
+font_size = 24
+
 [sub_resource type="LabelSettings" id="LabelSettings_2xflx"]
 font_size = 32
 
@@ -628,7 +629,7 @@ text = "              Harder Hards →
 Standard Hard ↓"
 label_settings = SubResource("LabelSettings_hkhsg")
 
-[node name="9 lives" type="Label" parent="menu/text/game_type"]
+[node name="alt map" type="Label" parent="menu/text/game_type"]
 offset_left = -2645.0
 offset_top = -10170.0
 offset_right = -2068.0
@@ -792,6 +793,14 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="menu/areas/hard items"]
 shape = SubResource("RectangleShape2D_f4yr5")
 
+[node name="alt items" type="Area2D" parent="menu/areas"]
+position = Vector2(-2402, -10005)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/areas/alt items"]
+shape = SubResource("RectangleShape2D_f4yr5")
+
 [node name="objects" type="Node2D" parent="menu"]
 
 [node name="saved game blocker" type="StaticBody2D" parent="menu/objects"]
@@ -810,638 +819,6 @@ texture = ExtResource("5_e42tl")
 [node name="camera" type="Camera2D" parent="."]
 zoom = Vector2(0.75, 0.75)
 script = ExtResource("2_uustn")
-
-[node name="texts" type="Node2D" parent="."]
-
-[node name="tutorial - introduction" type="Node2D" parent="texts"]
-
-[node name="text" type="Label" parent="texts/tutorial - introduction"]
-offset_left = 74.0
-offset_top = -2050.0
-offset_right = 562.0
-offset_bottom = -1993.0
-text = "It's all here
-"
-label_settings = SubResource("LabelSettings_4tgsn")
-
-[node name="text2" type="Label" parent="texts/tutorial - introduction"]
-offset_left = 3050.0
-offset_top = -2074.0
-offset_right = 3538.0
-offset_bottom = -2017.0
-text = "All of it."
-label_settings = SubResource("LabelSettings_4tgsn")
-
-[node name="text3" type="Label" parent="texts/tutorial - introduction"]
-offset_left = 5399.0
-offset_top = -1868.0
-offset_right = 5999.0
-offset_bottom = -1811.0
-text = "The entire game."
-label_settings = SubResource("LabelSettings_4tgsn")
-
-[node name="Label" type="Label" parent="texts/tutorial - introduction"]
-offset_left = 8343.0
-offset_top = -1952.0
-offset_right = 8587.0
-offset_bottom = -1937.0
-text = "Hold [JUMP] to jump higher"
-
-[node name="text4" type="Label" parent="texts"]
-offset_left = 15294.0
-offset_top = -1943.0
-offset_right = 15894.0
-offset_bottom = -1886.0
-text = "Almost there!"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text14" type="Label" parent="texts"]
-offset_left = 12835.0
-offset_top = 61.0
-offset_right = 13435.0
-offset_bottom = 118.0
-text = "OH NO! You broke your legs.
-If you fall too hard, you die"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text6" type="Label" parent="texts"]
-offset_left = 15281.0
-offset_top = -910.0
-offset_right = 15881.0
-offset_bottom = -853.0
-text = "Don't Fall.
-(You'll Die)"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text5" type="Label" parent="texts"]
-offset_left = 15266.0
-offset_top = -3203.0
-offset_right = 15866.0
-offset_bottom = -3146.0
-text = "You did it!"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text8" type="Label" parent="texts"]
-offset_left = 17499.0
-offset_top = -3223.0
-offset_right = 18137.0
-offset_bottom = -3166.0
-text = "Spikes are pointy"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text7" type="Label" parent="texts"]
-offset_left = 14037.0
-offset_top = 2.0
-offset_right = 14637.0
-offset_bottom = 63.0
-text = "This is a checkpoint.
-(it also saves your progress)"
-label_settings = SubResource("LabelSettings_2uv5b")
-horizontal_alignment = 1
-
-[node name="text9" type="Label" parent="texts"]
-offset_left = 20844.0
-offset_top = -2489.0
-offset_right = 21557.0
-offset_bottom = -2432.0
-text = "Ha! You're Trapped!"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text10" type="Label" parent="texts"]
-offset_left = 23491.0
-offset_top = -4800.0
-offset_right = 24466.0
-offset_bottom = -4743.0
-text = "Let me tell you a story..."
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text11" type="Label" parent="texts"]
-offset_left = 25663.0
-offset_top = -4811.0
-offset_right = 26938.0
-offset_bottom = -4754.0
-text = "The story of a Thousand-Year Door."
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text12" type="Label" parent="texts"]
-offset_left = 32136.0
-offset_top = -3988.0
-offset_right = 33411.0
-offset_bottom = -3931.0
-text = "Purple Orb
-
-Makes purple blocks opaque"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text13" type="Label" parent="texts"]
-offset_left = 33998.0
-offset_top = -2794.0
-offset_right = 35273.0
-offset_bottom = -2701.0
-text = "← Down
-Up →"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text15" type="Label" parent="texts"]
-offset_left = 32910.0
-offset_top = 1084.0
-offset_right = 34185.0
-offset_bottom = 1177.0
-text = "← Right
-No →"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text16" type="Label" parent="texts"]
-offset_left = 21331.0
-offset_top = -1077.0
-offset_right = 22606.0
-offset_bottom = -984.0
-text = "Warp Orb
-
-Activates WARP PORTALS"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text17" type="Label" parent="texts"]
-offset_left = 20640.0
-offset_top = -864.0
-offset_right = 21915.0
-offset_bottom = -771.0
-text = "Out     In"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text18" type="Label" parent="texts"]
-offset_left = 6936.0
-offset_top = 6087.0
-offset_right = 8211.0
-offset_bottom = 6180.0
-text = "Welcome to the World between Worlds!"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="Danger text" type="Label" parent="texts"]
-offset_left = 9447.0
-offset_top = 6274.0
-offset_right = 10722.0
-offset_bottom = 6367.0
-text = "DANGER!"
-label_settings = SubResource("LabelSettings_k837h")
-horizontal_alignment = 1
-
-[node name="text19" type="Label" parent="texts"]
-offset_left = 43769.0
-offset_top = -366.0
-offset_right = 45044.0
-offset_bottom = -273.0
-text = "Hard ↑
-
-Easy →"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text26" type="Label" parent="texts"]
-offset_left = 43598.0
-offset_top = -259.0
-offset_right = 44873.0
-offset_bottom = -166.0
-text = "← Progression
-(but hard)"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text20" type="Label" parent="texts"]
-offset_left = 43066.0
-offset_top = -478.0
-offset_right = 44341.0
-offset_bottom = -385.0
-text = "Pink Orb
-
-Activates PINK blocks"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text21" type="Label" parent="texts"]
-offset_left = 38208.0
-offset_top = 277.0
-offset_right = 39483.0
-offset_bottom = 370.0
-text = "You probably want to go left first..."
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text22" type="Label" parent="texts"]
-offset_left = 39971.0
-offset_top = -55.0
-offset_right = 41246.0
-offset_bottom = 38.0
-text = "Like seriously"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text23" type="Label" parent="texts"]
-offset_left = 40786.0
-offset_top = -107.0
-offset_right = 42061.0
-offset_bottom = -14.0
-text = "LAST CHANGE TO TURN BACK"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text24" type="Label" parent="texts"]
-offset_left = 42014.0
-offset_top = -364.0
-offset_right = 43289.0
-offset_bottom = -271.0
-text = "OK fine"
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="text25" type="Label" parent="texts"]
-offset_left = 42495.0
-offset_top = -1273.0
-offset_right = 43770.0
-offset_bottom = -1180.0
-text = "I told you..."
-label_settings = SubResource("LabelSettings_4tgsn")
-horizontal_alignment = 1
-
-[node name="fall arrows" type="Label" parent="texts"]
-offset_left = 16593.0
-offset_top = -1807.0
-offset_right = 16633.0
-offset_bottom = -1672.0
-text = "←
-←
-←
-←
-←
-←
-←
-←
-
-
-
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-→
-
-
-
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-←
-
-
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓
-↓"
-label_settings = SubResource("LabelSettings_f74bi")
-horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="texts"]
-offset_left = 22747.0
-offset_top = 2695.0
-offset_right = 23098.0
-offset_bottom = 2742.0
-text = "Yellow Orb
-You know the drill by now"
-label_settings = SubResource("LabelSettings_mn8a3")
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="texts"]
-offset_left = 37923.0
-offset_top = -1816.0
-offset_right = 38274.0
-offset_bottom = -1769.0
-text = "?????"
-label_settings = SubResource("LabelSettings_mn8a3")
-horizontal_alignment = 1
-
-[node name="double jump" type="Node2D" parent="texts"]
-
-[node name="Label" type="Label" parent="texts/double jump"]
-offset_left = 7653.0
-offset_top = -4114.0
-offset_right = 8347.0
-offset_bottom = -4021.0
-text = "Double Jump
-
-Press [Jump] in the air to jump again"
-label_settings = SubResource("LabelSettings_37a6g")
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="texts/double jump"]
-offset_left = 6612.0
-offset_top = -4455.0
-offset_right = 7306.0
-offset_bottom = -4362.0
-text = "Double jump just before landing to
-not die of fall damage"
-label_settings = SubResource("LabelSettings_37a6g")
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="texts/double jump"]
-offset_left = 5640.0
-offset_top = -3889.0
-offset_right = 6334.0
-offset_bottom = -3796.0
-text = "Go here
-↓"
-label_settings = SubResource("LabelSettings_37a6g")
-horizontal_alignment = 1
-
-[node name="fall" type="Label" parent="texts"]
-offset_left = 35163.0
-offset_top = -6862.0
-offset_right = 35501.0
-offset_bottom = -6473.0
-text = "
-
-    ! 
-    ! 
-    ! 
-    ! 
-    ! 
-    !
-
-
- !!!!!!!
- !!!!!!!
- !!!!!!!
- !!!!!!!
- !!!!!!!
- !!!!!!!
- !!!!!!!
-
-
-
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-!       !
-
-
-
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-    !
-
-
-
-
-
-   →↓←
-   →↓←
-   →↓←
-   →↓←
-   →↓←
-   →↓←
-   →↓←
-   →↓←
-   →↓←
-   →↓←
-   →↓←
-    ↓"
-label_settings = SubResource("LabelSettings_kwogi")
-
-[node name="2 thousand year door" type="Node2D" parent="texts"]
-
-[node name="Label" type="Label" parent="texts/2 thousand year door"]
-offset_left = 28423.0
-offset_top = -5098.0
-offset_right = 29211.0
-offset_bottom = -5041.0
-text = "Such a cool, old door, am I right?"
-label_settings = SubResource("LabelSettings_lmwrn")
-
-[node name="Label2" type="Label" parent="texts/2 thousand year door"]
-offset_left = 30228.0
-offset_top = -5089.0
-offset_right = 31016.0
-offset_bottom = -5032.0
-text = "But,it pales when compared to.............................................................The Ten Thousand-Year door."
-label_settings = SubResource("LabelSettings_lmwrn")
-
-[node name="Label3" type="Label" parent="texts"]
-offset_left = 12954.0
-offset_top = -2308.0
-offset_right = 13197.0
-offset_bottom = -2247.0
-text = "Get ->
-Don't Fall \\/"
-label_settings = SubResource("LabelSettings_1qpxc")
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="texts"]
-offset_left = 21909.0
-offset_top = -9181.0
-offset_right = 22345.0
-offset_bottom = -9109.0
-text = "ACME Gravity Orb
-
-Green blocks and funny flights!"
-label_settings = SubResource("LabelSettings_3muav")
-horizontal_alignment = 1
-
-[node name="Label5" type="Label" parent="texts"]
-offset_left = 36917.0
-offset_top = -8588.0
-offset_right = 37241.0
-offset_bottom = -8541.0
-text = "Key
-Unlocks a very old door"
-label_settings = SubResource("LabelSettings_cs32v")
-horizontal_alignment = 1
-
-[node name="jumping tutorial" type="Node2D" parent="texts"]
-
-[node name="Label6" type="Label" parent="texts/jumping tutorial"]
-offset_left = 24037.0
-offset_top = -3418.0
-offset_right = 24360.0
-offset_bottom = -3396.0
-text = "You can't fall off this"
-label_settings = SubResource("LabelSettings_cb6o2")
-
-[node name="Label7" type="Label" parent="texts/jumping tutorial"]
-offset_left = 24357.0
-offset_top = -3362.0
-offset_right = 24573.0
-offset_bottom = -3340.0
-text = "But this is OK"
-label_settings = SubResource("LabelSettings_cb6o2")
-horizontal_alignment = 1
-
-[node name="Label8" type="Label" parent="texts/jumping tutorial"]
-offset_left = 24314.0
-offset_top = -3307.0
-offset_right = 24652.0
-offset_bottom = -3285.0
-text = "You can't jump this high"
-label_settings = SubResource("LabelSettings_cb6o2")
-horizontal_alignment = 1
-
-[node name="Label9" type="Label" parent="texts/jumping tutorial"]
-offset_left = 24542.0
-offset_top = -3241.0
-offset_right = 24908.0
-offset_bottom = -3219.0
-text = "But you can jump this high"
-label_settings = SubResource("LabelSettings_cb6o2")
-horizontal_alignment = 1
-
-[node name="Label10" type="Label" parent="texts/jumping tutorial"]
-offset_left = 25187.0
-offset_top = -3252.0
-offset_right = 25890.0
-offset_bottom = -3130.0
-text = "If you are doing the \"Normal\" version, 
-    you can survive after jumping off a high ledge
-
-However, if you are doing the \"Hard\" version,
-    you will die if you jump of a high ledge."
-label_settings = SubResource("LabelSettings_cb6o2")
 
 [node name="area name triggers" type="Node2D" parent="."]
 
@@ -2266,130 +1643,6 @@ position = Vector2(-4144.38, -3921.78)
 shape = SubResource("RectangleShape2D_rlynk")
 debug_color = Color(0.870588, 0, 0.847059, 0)
 
-[node name="checkpoints" type="Node2D" parent="."]
-
-[node name="checkpoint" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(17347, -3012)
-
-[node name="checkpoint2" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(14338, 95)
-
-[node name="checkpoint3" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(21715, -2843)
-collision_size = Vector2(1, 10)
-collision_offset = Vector2(0, -200)
-
-[node name="checkpoint4" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(27396, -3102)
-
-[node name="checkpoint5" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(30002, -3092)
-
-[node name="checkpoint6" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(32543, -3708)
-collision_size = Vector2(1, 5)
-
-[node name="checkpoint8" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(34151, -2736)
-
-[node name="checkpoint9" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(33632, 964)
-
-[node name="checkpoint10" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(30027, 918)
-
-[node name="checkpoint11" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(21784, -800)
-collision_size = Vector2(1, 10)
-collision_offset = Vector2(0, -200)
-
-[node name="checkpoint12" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(43142, -286)
-collision_size = Vector2(1, 10)
-collision_offset = Vector2(0, -200)
-
-[node name="checkpoint13" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(34362, -1375)
-collision_size = Vector2(1, 3)
-
-[node name="checkpoint14" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(20912, -1888)
-collision_size = Vector2(1, 3)
-
-[node name="checkpoint15" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(22752, -827)
-scale = Vector2(0.5, 0.5)
-collision_size = Vector2(1, 3)
-
-[node name="checkpoint16" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(22761, 2789)
-
-[node name="checkpoint17" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(35576, -6907)
-
-[node name="checkpoint18" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(11709, -3742)
-
-[node name="checkpoint19" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(8533, -3846)
-
-[node name="checkpoint20" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(6106, -3838)
-
-[node name="checkpoint21" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(33951, -3906)
-
-[node name="checkpoint22" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(34208, -1696)
-
-[node name="checkpoint23" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(24213, 2014)
-
-[node name="checkpoint24" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(17141, 3744)
-
-[node name="checkpoint25" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(18097, -1563)
-
-[node name="checkpoint26" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(19096, 3718)
-
-[node name="checkpoint27" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(37984, -1760)
-
-[node name="checkpoint28" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(-3328, -1766)
-
-[node name="checkpoint29" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(13237, -2278)
-
-[node name="checkpoint30" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(25334, -6489)
-
-[node name="checkpoint31" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(24107, -10118)
-
-[node name="checkpoint32" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(23750, -17186)
-
-[node name="checkpoint33" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(23225, -9037)
-
-[node name="checkpoint34" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(37287, -8449)
-
-[node name="checkpoint35" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(34591, -6459)
-
-[node name="checkpoint36" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(29144, -13087)
-
-[node name="checkpoint37" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(36412, -20830)
-
-[node name="checkpoint38" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(33009, -18385)
-
 [node name="obstacles" type="Node2D" parent="."]
 
 [node name="cycles" type="Node2D" parent="obstacles"]
@@ -2628,6 +1881,7 @@ speed = 500.0
 despawn_linked_orb = NodePath("../../vertical/death orb")
 
 [node name="trial 1" parent="obstacles" instance=ExtResource("8_rfdk1")]
+visible = false
 position = Vector2(35969, -6657)
 scale = Vector2(24, 24)
 points = Array[Vector2]([Vector2(0, 0), Vector2(-330, 0), Vector2(-330, -1000)])
@@ -3195,6 +2449,760 @@ position = Vector2(3563.5, -3323.5)
 shape = SubResource("RectangleShape2D_66ps7")
 debug_color = Color(0.666667, 0.666667, 0, 0)
 
+[node name="checkpoints" type="Node2D" parent="."]
+
+[node name="checkpoint" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(17347, -3012)
+
+[node name="checkpoint2" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(14338, 95)
+
+[node name="checkpoint3" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(21715, -2843)
+collision_size = Vector2(1, 10)
+collision_offset = Vector2(0, -200)
+
+[node name="checkpoint4" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(27396, -3102)
+
+[node name="checkpoint5" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(30016, -3071)
+
+[node name="checkpoint6" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(32640, -3714)
+collision_size = Vector2(1, 5)
+
+[node name="checkpoint8" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(34151, -2736)
+
+[node name="checkpoint9" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(33632, 992)
+
+[node name="checkpoint10" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(30027, 918)
+
+[node name="checkpoint11" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(21784, -800)
+
+[node name="checkpoint12" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(43142, -286)
+collision_size = Vector2(1, 7.5)
+collision_offset = Vector2(0, -100)
+
+[node name="checkpoint13" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(34362, -1375)
+collision_size = Vector2(1, 3)
+
+[node name="checkpoint14" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(20912, -1888)
+collision_size = Vector2(1, 3)
+
+[node name="checkpoint15" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(22752, -827)
+scale = Vector2(0.5, 0.5)
+collision_size = Vector2(1, 3)
+
+[node name="checkpoint16" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(22761, 2789)
+
+[node name="checkpoint17" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(35576, -6907)
+
+[node name="checkpoint18" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(11709, -3742)
+
+[node name="checkpoint19" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(8533, -3846)
+
+[node name="checkpoint20" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(6106, -3838)
+
+[node name="checkpoint21" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(33951, -3906)
+
+[node name="checkpoint22" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(34208, -1696)
+
+[node name="checkpoint23" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(24213, 2014)
+
+[node name="checkpoint24" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(17141, 3744)
+
+[node name="checkpoint25" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(18097, -1563)
+
+[node name="checkpoint26" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(19096, 3718)
+
+[node name="checkpoint27" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(37984, -1760)
+
+[node name="checkpoint28" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(-3328, -1766)
+
+[node name="checkpoint29" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(13237, -2278)
+
+[node name="checkpoint30" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(25334, -6489)
+
+[node name="checkpoint31" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(24107, -10118)
+
+[node name="checkpoint32" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(23750, -17186)
+
+[node name="checkpoint33" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(23225, -9037)
+
+[node name="checkpoint34" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(37287, -8449)
+
+[node name="checkpoint35" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(34591, -6459)
+
+[node name="checkpoint36" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(29144, -13087)
+
+[node name="checkpoint37" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(36412, -20830)
+
+[node name="checkpoint38" parent="checkpoints" instance=ExtResource("4_ywbjr")]
+position = Vector2(33009, -18385)
+
+[node name="texts" type="Node2D" parent="."]
+
+[node name="tutorial - introduction" type="Node2D" parent="texts"]
+
+[node name="text" type="Label" parent="texts/tutorial - introduction"]
+offset_left = 74.0
+offset_top = -2050.0
+offset_right = 562.0
+offset_bottom = -1993.0
+text = "It's all here
+"
+label_settings = SubResource("LabelSettings_4tgsn")
+
+[node name="text2" type="Label" parent="texts/tutorial - introduction"]
+offset_left = 3050.0
+offset_top = -2074.0
+offset_right = 3538.0
+offset_bottom = -2017.0
+text = "All of it."
+label_settings = SubResource("LabelSettings_4tgsn")
+
+[node name="text3" type="Label" parent="texts/tutorial - introduction"]
+offset_left = 5399.0
+offset_top = -1868.0
+offset_right = 5999.0
+offset_bottom = -1811.0
+text = "The entire game."
+label_settings = SubResource("LabelSettings_4tgsn")
+
+[node name="Label" type="Label" parent="texts/tutorial - introduction"]
+offset_left = 8343.0
+offset_top = -1952.0
+offset_right = 8587.0
+offset_bottom = -1937.0
+text = "Hold [JUMP] to jump higher"
+
+[node name="text4" type="Label" parent="texts"]
+offset_left = 15294.0
+offset_top = -1943.0
+offset_right = 15894.0
+offset_bottom = -1886.0
+text = "Almost there!"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text14" type="Label" parent="texts"]
+offset_left = 12835.0
+offset_top = 61.0
+offset_right = 13435.0
+offset_bottom = 118.0
+text = "OH NO! You broke your legs.
+If you fall too hard, you die"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text6" type="Label" parent="texts"]
+offset_left = 15281.0
+offset_top = -910.0
+offset_right = 15881.0
+offset_bottom = -853.0
+text = "Don't Fall.
+(You'll Die)"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text5" type="Label" parent="texts"]
+offset_left = 15266.0
+offset_top = -3203.0
+offset_right = 15866.0
+offset_bottom = -3146.0
+text = "You did it!"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text8" type="Label" parent="texts"]
+offset_left = 17499.0
+offset_top = -3223.0
+offset_right = 18137.0
+offset_bottom = -3166.0
+text = "Spikes are pointy"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text7" type="Label" parent="texts"]
+offset_left = 14037.0
+offset_top = 2.0
+offset_right = 14637.0
+offset_bottom = 63.0
+text = "This is a checkpoint.
+(it also saves your progress)"
+label_settings = SubResource("LabelSettings_2uv5b")
+horizontal_alignment = 1
+
+[node name="text9" type="Label" parent="texts"]
+offset_left = 20844.0
+offset_top = -2489.0
+offset_right = 21557.0
+offset_bottom = -2432.0
+text = "Ha! You're Trapped!"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text10" type="Label" parent="texts"]
+offset_left = 23491.0
+offset_top = -4800.0
+offset_right = 24466.0
+offset_bottom = -4743.0
+text = "Let me tell you a story..."
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text11" type="Label" parent="texts"]
+offset_left = 25663.0
+offset_top = -4811.0
+offset_right = 26938.0
+offset_bottom = -4754.0
+text = "The story of a Thousand-Year Door."
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text12" type="Label" parent="texts"]
+offset_left = 32136.0
+offset_top = -3988.0
+offset_right = 33411.0
+offset_bottom = -3931.0
+text = "Purple Orb
+
+Makes purple blocks opaque"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text13" type="Label" parent="texts"]
+offset_left = 33998.0
+offset_top = -2794.0
+offset_right = 35273.0
+offset_bottom = -2701.0
+text = "← Down
+Up →"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text15" type="Label" parent="texts"]
+offset_left = 32910.0
+offset_top = 1084.0
+offset_right = 34185.0
+offset_bottom = 1177.0
+text = "← Right
+No →"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text16" type="Label" parent="texts"]
+offset_left = 21331.0
+offset_top = -1077.0
+offset_right = 22606.0
+offset_bottom = -984.0
+text = "Warp Orb
+
+Activates WARP PORTALS"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text17" type="Label" parent="texts"]
+offset_left = 20640.0
+offset_top = -864.0
+offset_right = 21915.0
+offset_bottom = -771.0
+text = "Out     In"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text18" type="Label" parent="texts"]
+offset_left = 6936.0
+offset_top = 6087.0
+offset_right = 8211.0
+offset_bottom = 6180.0
+text = "Welcome to the World between Worlds!"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="Danger text" type="Label" parent="texts"]
+offset_left = 9447.0
+offset_top = 6274.0
+offset_right = 10722.0
+offset_bottom = 6367.0
+text = "DANGER!"
+label_settings = SubResource("LabelSettings_k837h")
+horizontal_alignment = 1
+
+[node name="text19" type="Label" parent="texts"]
+offset_left = 43769.0
+offset_top = -366.0
+offset_right = 45044.0
+offset_bottom = -273.0
+text = "Hard ↑
+
+Easy →"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text26" type="Label" parent="texts"]
+offset_left = 43598.0
+offset_top = -259.0
+offset_right = 44873.0
+offset_bottom = -166.0
+text = "← Progression
+(but hard)"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text20" type="Label" parent="texts"]
+offset_left = 43066.0
+offset_top = -478.0
+offset_right = 44341.0
+offset_bottom = -385.0
+text = "Pink Orb
+
+Activates PINK blocks"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text21" type="Label" parent="texts"]
+offset_left = 38208.0
+offset_top = 277.0
+offset_right = 39483.0
+offset_bottom = 370.0
+text = "You probably want to go left first..."
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text22" type="Label" parent="texts"]
+offset_left = 39971.0
+offset_top = -55.0
+offset_right = 41246.0
+offset_bottom = 38.0
+text = "Like seriously"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text23" type="Label" parent="texts"]
+offset_left = 40786.0
+offset_top = -107.0
+offset_right = 42061.0
+offset_bottom = -14.0
+text = "LAST CHANGE TO TURN BACK"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text24" type="Label" parent="texts"]
+offset_left = 42014.0
+offset_top = -364.0
+offset_right = 43289.0
+offset_bottom = -271.0
+text = "OK fine"
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="text25" type="Label" parent="texts"]
+offset_left = 42495.0
+offset_top = -1273.0
+offset_right = 43770.0
+offset_bottom = -1180.0
+text = "I told you..."
+label_settings = SubResource("LabelSettings_4tgsn")
+horizontal_alignment = 1
+
+[node name="fall arrows" type="Label" parent="texts"]
+offset_left = 16593.0
+offset_top = -1807.0
+offset_right = 16633.0
+offset_bottom = -1672.0
+text = "←
+←
+←
+←
+←
+←
+←
+←
+
+
+
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+→
+
+
+
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+←
+
+
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓
+↓"
+label_settings = SubResource("LabelSettings_f74bi")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="texts"]
+offset_left = 22747.0
+offset_top = 2695.0
+offset_right = 23098.0
+offset_bottom = 2742.0
+text = "Yellow Orb
+You know the drill by now"
+label_settings = SubResource("LabelSettings_mn8a3")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="texts"]
+offset_left = 37923.0
+offset_top = -1816.0
+offset_right = 38274.0
+offset_bottom = -1769.0
+text = "?????"
+label_settings = SubResource("LabelSettings_mn8a3")
+horizontal_alignment = 1
+
+[node name="double jump" type="Node2D" parent="texts"]
+
+[node name="Label" type="Label" parent="texts/double jump"]
+offset_left = 7653.0
+offset_top = -4114.0
+offset_right = 8347.0
+offset_bottom = -4021.0
+text = "Double Jump
+
+Press [Jump] in the air to jump again"
+label_settings = SubResource("LabelSettings_37a6g")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="texts/double jump"]
+offset_left = 6612.0
+offset_top = -4455.0
+offset_right = 7306.0
+offset_bottom = -4362.0
+text = "Double jump just before landing to
+not die of fall damage"
+label_settings = SubResource("LabelSettings_37a6g")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="texts/double jump"]
+offset_left = 5640.0
+offset_top = -3889.0
+offset_right = 6334.0
+offset_bottom = -3796.0
+text = "Go here
+↓"
+label_settings = SubResource("LabelSettings_37a6g")
+horizontal_alignment = 1
+
+[node name="fall" type="Label" parent="texts"]
+offset_left = 35163.0
+offset_top = -6862.0
+offset_right = 35501.0
+offset_bottom = -6473.0
+text = "
+
+    ! 
+    ! 
+    ! 
+    ! 
+    ! 
+    !
+
+
+ !!!!!!!
+ !!!!!!!
+ !!!!!!!
+ !!!!!!!
+ !!!!!!!
+ !!!!!!!
+ !!!!!!!
+
+
+
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+!       !
+
+
+
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+    !
+
+
+
+
+
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+   →↓←
+    ↓"
+label_settings = SubResource("LabelSettings_kwogi")
+
+[node name="2 thousand year door" type="Node2D" parent="texts"]
+
+[node name="Label" type="Label" parent="texts/2 thousand year door"]
+offset_left = 28423.0
+offset_top = -5098.0
+offset_right = 29211.0
+offset_bottom = -5041.0
+text = "Such a cool, old door, am I right?"
+label_settings = SubResource("LabelSettings_lmwrn")
+
+[node name="Label2" type="Label" parent="texts/2 thousand year door"]
+offset_left = 30228.0
+offset_top = -5089.0
+offset_right = 31016.0
+offset_bottom = -5032.0
+text = "But,it pales when compared to.............................................................The Ten Thousand-Year door."
+label_settings = SubResource("LabelSettings_lmwrn")
+
+[node name="Label3" type="Label" parent="texts"]
+offset_left = 12954.0
+offset_top = -2308.0
+offset_right = 13197.0
+offset_bottom = -2247.0
+text = "Get ->
+Don't Fall \\/"
+label_settings = SubResource("LabelSettings_1qpxc")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="texts"]
+offset_left = 21909.0
+offset_top = -9181.0
+offset_right = 22345.0
+offset_bottom = -9109.0
+text = "ACME Gravity Orb
+
+Green blocks and funny flights!"
+label_settings = SubResource("LabelSettings_3muav")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="texts"]
+offset_left = 36917.0
+offset_top = -8588.0
+offset_right = 37241.0
+offset_bottom = -8541.0
+text = "Key
+Unlocks a very old door"
+label_settings = SubResource("LabelSettings_cs32v")
+horizontal_alignment = 1
+
+[node name="jumping tutorial" type="Node2D" parent="texts"]
+
+[node name="Label6" type="Label" parent="texts/jumping tutorial"]
+offset_left = 24037.0
+offset_top = -3418.0
+offset_right = 24360.0
+offset_bottom = -3396.0
+text = "You can't fall off this"
+label_settings = SubResource("LabelSettings_cb6o2")
+
+[node name="Label7" type="Label" parent="texts/jumping tutorial"]
+offset_left = 24357.0
+offset_top = -3362.0
+offset_right = 24573.0
+offset_bottom = -3340.0
+text = "But this is OK"
+label_settings = SubResource("LabelSettings_cb6o2")
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="texts/jumping tutorial"]
+offset_left = 24314.0
+offset_top = -3307.0
+offset_right = 24652.0
+offset_bottom = -3285.0
+text = "You can't jump this high"
+label_settings = SubResource("LabelSettings_cb6o2")
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="texts/jumping tutorial"]
+offset_left = 24542.0
+offset_top = -3241.0
+offset_right = 24908.0
+offset_bottom = -3219.0
+text = "But you can jump this high"
+label_settings = SubResource("LabelSettings_cb6o2")
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="texts/jumping tutorial"]
+offset_left = 25187.0
+offset_top = -3252.0
+offset_right = 25890.0
+offset_bottom = -3130.0
+text = "If you are doing the \"Normal\" or \"Alt Map\" version, 
+    you can survive after jumping off a high ledge
+
+However, if you are doing the \"Hard\" version,
+    you will die if you jump of a high ledge."
+label_settings = SubResource("LabelSettings_cb6o2")
+
 [node name="warp doors" type="Node2D" parent="."]
 
 [node name="practice" type="Node2D" parent="warp doors" node_paths=PackedStringArray("in_door", "out_door")]
@@ -3205,10 +3213,10 @@ out_door = NodePath("Out")
 debug_color_of_door = Color(0, 0, 0, 0.5)
 
 [node name="In" parent="warp doors/practice" instance=ExtResource("12_pux87")]
-position = Vector2(-53, 0)
+position = Vector2(-64, 0)
 
 [node name="Out" parent="warp doors/practice" instance=ExtResource("12_pux87")]
-position = Vector2(-200, 0)
+position = Vector2(-192, 0)
 
 [node name="world between worlds" type="Node2D" parent="warp doors"]
 
@@ -3892,6 +3900,7 @@ use_sprite = false
 [node name="out of double jump" type="Node2D" parent="warp doors/color cycles" node_paths=PackedStringArray("in_door", "out_door")]
 position = Vector2(37792, -4032)
 script = ExtResource("11_suls4")
+doors_are_two_way = true
 in_door = NodePath("In")
 out_door = NodePath("Out")
 debug_color_of_door = Color(0.690771, 0.530631, 0.784459, 0.5)
@@ -3913,8 +3922,53 @@ debug_color_of_door = Color(0.249771, 0.0693935, 0.361609, 0.5)
 [node name="In" parent="warp doors/anti-softlock/fall damage pit" instance=ExtResource("12_pux87")]
 
 [node name="Out" parent="warp doors/anti-softlock/fall damage pit" instance=ExtResource("12_pux87")]
-position = Vector2(-2048, -960)
+position = Vector2(-2061, -963)
 use_sprite = false
+
+[node name="only_alt" type="Node2D" parent="warp doors"]
+modulate = Color(0, 1, 1, 1)
+script = ExtResource("30_b1qrp")
+
+[node name="test door" type="Node2D" parent="warp doors/only_alt" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(22496, -1664)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.545412, 0.471473, 0.745035, 0.5)
+metadata/_custom_type_script = "uid://qhosvt3tme43"
+
+[node name="In" parent="warp doors/only_alt/test door" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/only_alt/test door" instance=ExtResource("12_pux87")]
+visible = false
+position = Vector2(-781, -1283)
+
+[node name="cycles but complicated" type="Node2D" parent="warp doors/only_alt" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(30688, -4288)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.723551, 0.944574, 0.633107, 0.5)
+metadata/_custom_type_script = "uid://qhosvt3tme43"
+
+[node name="In" parent="warp doors/only_alt/cycles but complicated" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/only_alt/cycles but complicated" instance=ExtResource("12_pux87")]
+visible = false
+position = Vector2(-192, 640)
+
+[node name="into the above path" type="Node2D" parent="warp doors/only_alt" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(34208, -1088)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.98548, 0.609677, 0.52613, 0.5)
+metadata/_custom_type_script = "uid://qhosvt3tme43"
+
+[node name="In" parent="warp doors/only_alt/into the above path" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/only_alt/into the above path" instance=ExtResource("12_pux87")]
+position = Vector2(384, -320)
 
 [node name="win game" type="Node2D" parent="." node_paths=PackedStringArray("player_area", "hit_label", "timer_label")]
 script = ExtResource("28_yvygb")
@@ -3993,3 +4047,4 @@ script = ExtResource("33_vl5ma")
 [connection signal="body_entered" from="menu/text/pause menu/resume" to="menu/text/pause menu" method="_area_body_entered" binds= [true]]
 [connection signal="body_entered" from="menu/text/pause menu/quit" to="menu/text/pause menu" method="_area_body_entered" binds= [false]]
 [connection signal="body_entered" from="menu/areas/hard items" to="menu" method="give_hard_items"]
+[connection signal="body_entered" from="menu/areas/alt items" to="menu" method="give_alt_items"]

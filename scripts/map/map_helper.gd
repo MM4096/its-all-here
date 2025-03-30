@@ -17,7 +17,7 @@ func _ready() -> void:
 			if i.name.contains(ground_layer_name):
 				i.tile_set = i.tile_set.duplicate(true)
 				i.tile_set.set_physics_layer_collision_layer(0, 1)
-			elif i.name == death_layer_name:
+			elif i.name.contains(death_layer_name):
 				i.tile_set = i.tile_set.duplicate(true)
 				i.tile_set.set_physics_layer_collision_layer(0, 8)
 		elif i is Node2D:
@@ -40,6 +40,8 @@ func _ready() -> void:
 	toggle_appearing_layer(4, false)
 	toggle_appearing_layer(5, false)
 	toggle_appearing_layer(6, false)
+
+	set_alt_blocks_enabled(false)
 
 ## Toggles [param layer_id] to [param shown]
 func toggle_appearing_layer(layer_id: int, shown: bool = true) -> void:
@@ -67,3 +69,11 @@ func set_current_enabled_cycle(cycle: int) -> void:
 					if j.name == "cycle2":
 						j.visible = cycle == 2
 						j.collision_enabled = cycle == 2
+
+## Enable/disable the alternate blocks
+func set_alt_blocks_enabled(enable: bool = false) -> void:
+	for i in map.get_children(true):
+		if i.name.contains("_alt"):
+			if i is TileMapLayer:
+				i.visible = enable
+				i.collision_enabled = enable

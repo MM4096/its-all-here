@@ -6,10 +6,10 @@
     "activeFile": "maps/map.tmx",
     "automapping.whileDrawing": false,
     "expandedProjectPaths": [
-        ".",
-        "maps",
         "tileset",
-        "automap"
+        "automap",
+        "maps",
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -32,12 +32,28 @@
                 "y": 42.33333333333337
             }
         },
-        "automap/ground_automap.tmx": {
-            "scale": 0.25,
+        "automap/ground_alt_automap.tmx": {
+            "scale": 0.21221923828125,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 512,
-                "y": 2046
+                "x": 513.6197871728502,
+                "y": 2047.4109864825996
+            }
+        },
+        "automap/ground_automap.tmx": {
+            "scale": 0.33,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 512.1212121212121,
+                "y": 2046.969696969697
+            }
+        },
+        "automap/spikes_alt_automap.tmx": {
+            "scale": 1,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 0,
+                "y": -0.5
             }
         },
         "automap/spikes_automap.tmx": {
@@ -66,18 +82,15 @@
         },
         "maps/map.tmx": {
             "expandedGroupLayers": [
-                10,
-                14,
-                17,
-                7,
+                34,
                 28,
-                34
+                7
             ],
-            "scale": 1,
-            "selectedLayer": 2,
+            "scale": 0.2721,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": -2221.5,
-                "y": -9934.5
+                "x": 17409.0407938258,
+                "y": -8193.678794560823
             }
         },
         "maps/parallax_background.tmx": {
@@ -142,11 +155,15 @@
         "automap/spikes_automap.tmx",
         "tileset/generic.tsx",
         "tileset/ground_tilemap.tsx",
-        "tileset/spikes.tsx"
+        "tileset/spikes.tsx",
+        "automap/ground_alt_automap.tmx",
+        "automap/spikes_alt_automap.tmx"
     ],
     "project": "its-all-here.tiled-project",
-    "property.type": "int",
+    "property.type": "string",
     "recentFiles": [
+        "automap/spikes_alt_automap.tmx",
+        "automap/ground_alt_automap.tmx",
         "tileset/spikes.tsx",
         "tileset/ground_tilemap.tsx",
         "tileset/generic.tsx",
@@ -156,9 +173,7 @@
         "automap/timer_blocks_automap.tmx",
         "maps/map.tmx",
         "maps/parallax_background.tmx",
-        "automap/background_automap.tmx",
-        "automap/appearing_blocks.tmx",
-        "tileset/ground.tsx"
+        "automap/background_automap.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

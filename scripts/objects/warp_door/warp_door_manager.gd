@@ -5,6 +5,10 @@ extends Node2D
 
 ## If the doors are 2 way, either side can be entered
 @export var doors_are_two_way: bool = false
+## Door is disabled?
+@export var disabled: bool = false
+## cache for disable
+var cached_disable: bool = false
 @export_group("Config")
 ## The door that is entered
 @export var in_door: WarpDoor
@@ -80,6 +84,14 @@ func _teleport_player(object: Node2D, sender: WarpDoor) -> void:
 
 	in_door.require_refresh = true
 	out_door.require_refresh = true
+
+func _process(delta: float) -> void:
+	if cached_disable != disabled:
+		cached_disable = disabled
+
+		self.visible = not disabled
+		in_door.monitoring = not disabled
+		out_door.monitoring = not disabled
 
 #region draw calls
 var is_drawing: bool = false
