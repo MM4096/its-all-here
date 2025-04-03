@@ -75,5 +75,6 @@ func set_alt_blocks_enabled(enable: bool = false) -> void:
 	for i in map.get_children(true):
 		if i.name.contains("_alt"):
 			if i is TileMapLayer:
-				i.visible = enable
+				if i.name.contains("map"):
+					i.visible = enable
 				i.collision_enabled = enable

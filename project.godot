@@ -91,6 +91,7 @@ pause={
 2d_physics/layer_4="death"
 2d_physics/layer_5="player particles"
 2d_physics/layer_6="gravity switcher"
+2d_physics/layer_7="death particle ground"
 
 [rendering]
 

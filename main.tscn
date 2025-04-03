@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=3 uid="uid://cb02yxiojlmjl"]
+[gd_scene load_steps=183 format=3 uid="uid://cb02yxiojlmjl"]
 
 [ext_resource type="Script" uid="uid://wjh0f8joydnc" path="res://scripts/menu/menu_script.gd" id="1_8pcci"]
 [ext_resource type="PackedScene" uid="uid://b8lhv6unruopp" path="res://scenes/game/menu_door.tscn" id="1_jawqs"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://dv15q5cqryba5" path="res://images/objects/collectables/key.png" id="23_1lq1j"]
 [ext_resource type="Script" uid="uid://2vkuu6pwla6g" path="res://scripts/win_handler/win_area.gd" id="28_yvygb"]
 [ext_resource type="Script" uid="uid://dd16g0q775ucy" path="res://scripts/helper/alt_warp_doors.gd" id="30_b1qrp"]
+[ext_resource type="Script" uid="uid://dt6fhd4e15k8k" path="res://scripts/objects/warp_door/warp_door.gd" id="31_b1qrp"]
 [ext_resource type="Script" uid="uid://3t4nj2eeg4v0" path="res://scripts/win_handler/timer.gd" id="33_vl5ma"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h7q5d"]
@@ -394,7 +395,7 @@ script = ExtResource("11_5dynm")
 cycle_timer = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q326j"]
-size = Vector2(1049, 5518)
+size = Vector2(968, 5518)
 
 [sub_resource type="Resource" id="Resource_xolcx"]
 script = ExtResource("11_5dynm")
@@ -2306,7 +2307,7 @@ script = ExtResource("7_2ad0w")
 methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_3eqdv"), SubResource("Resource_fv6gd")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas/chase/chase start"]
-position = Vector2(-226, 6)
+position = Vector2(-163, 5)
 shape = SubResource("RectangleShape2D_bldut")
 debug_color = Color(0.666667, 0.666667, 0, 0)
 
@@ -2360,7 +2361,7 @@ script = ExtResource("7_2ad0w")
 methods = Array[ExtResource("8_dyivc")]([SubResource("Resource_fuv53")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas/cycle timers/TriggerArea3"]
-position = Vector2(274.5, 2509)
+position = Vector2(234, 2509)
 shape = SubResource("RectangleShape2D_q326j")
 debug_color = Color(0.666667, 0.666667, 0, 0)
 
@@ -2551,7 +2552,7 @@ position = Vector2(25334, -6489)
 position = Vector2(24107, -10118)
 
 [node name="checkpoint32" parent="checkpoints" instance=ExtResource("4_ywbjr")]
-position = Vector2(23750, -17186)
+position = Vector2(23744, -17152)
 
 [node name="checkpoint33" parent="checkpoints" instance=ExtResource("4_ywbjr")]
 position = Vector2(23225, -9037)
@@ -3969,6 +3970,54 @@ metadata/_custom_type_script = "uid://qhosvt3tme43"
 
 [node name="Out" parent="warp doors/only_alt/into the above path" instance=ExtResource("12_pux87")]
 position = Vector2(384, -320)
+
+[node name="massive maze v1" type="Node2D" parent="warp doors/only_alt" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(38240, -4160)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.774029, 0.104142, 0.215153, 0.5)
+metadata/_custom_type_script = "uid://qhosvt3tme43"
+
+[node name="In" parent="warp doors/only_alt/massive maze v1" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/only_alt/massive maze v1" instance=ExtResource("12_pux87")]
+position = Vector2(3328, -3008)
+use_sprite = false
+
+[node name="out of maze 1" type="Node2D" parent="warp doors/only_alt" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(45280, -3520)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.177701, 0.931278, 0.521665, 0.5)
+metadata/_custom_type_script = "uid://qhosvt3tme43"
+
+[node name="In" parent="warp doors/only_alt/out of maze 1" instance=ExtResource("12_pux87")]
+
+[node name="Out" parent="warp doors/only_alt/out of maze 1" instance=ExtResource("12_pux87")]
+position = Vector2(-28416, 7232)
+use_sprite = false
+
+[node name="out of alternate blocks 1" type="Node2D" parent="warp doors/only_alt" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(19232, -448)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.557023, 0.79353, 0.559995, 0.5)
+metadata/_custom_type_script = "uid://qhosvt3tme43"
+
+[node name="In" type="Area2D" parent="warp doors/only_alt/out of alternate blocks 1" instance=ExtResource("12_pux87")]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("31_b1qrp")
+
+[node name="Out" type="Area2D" parent="warp doors/only_alt/out of alternate blocks 1" instance=ExtResource("12_pux87")]
+position = Vector2(2483, -2499)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("31_b1qrp")
+use_sprite = false
 
 [node name="win game" type="Node2D" parent="." node_paths=PackedStringArray("player_area", "hit_label", "timer_label")]
 script = ExtResource("28_yvygb")

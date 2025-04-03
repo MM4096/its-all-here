@@ -198,11 +198,8 @@ func _physics_process(delta: float) -> void:
 		cached_jump_timer = cached_jump_time
 
 	if !Input.is_action_pressed("move_up") and  \
-		((self.velocity.y < 0 and gravity_direction == 1) or (self.velocity.y > 0 and gravity_direction == 0)):
-		if gravity_direction == 1:
-			self.velocity.y = move_toward(self.velocity.y, 0, jump_deaccel_speed * delta)
-		else:
-			self.velocity.y = move_toward(self.velocity.y, 0, -jump_deaccel_speed * delta)
+		((self.velocity.y < 0 and gravity_direction == 1) or (self.velocity.y > 0 and gravity_direction == -1)):
+		self.velocity.y = move_toward(self.velocity.y, 0, jump_deaccel_speed * delta)
 
 	previous_frame_velocity = self.velocity
 	if self.velocity.y != 0:

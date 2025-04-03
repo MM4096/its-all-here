@@ -27,20 +27,28 @@ func delete_all_particles() -> void:
 func _create_item(color: Color = Color.WHITE) -> RigidBody2D:
 	var body = RigidBody2D.new()
 
+	body.gravity_scale = sign(Player.instance.gravity_direction)
+
 	body.collision_layer = 16
-	body.collision_mask = 25
+	#body.collision_mask = 25 + 64
+	body.collision_mask = pow(2, 0) + pow(2, 3) + pow(2, 4) + pow(2, 6)
+
+	body.z_index = -1
 
 	var sprite = Sprite2D.new()
 	sprite.texture = white_texture.duplicate()
-	sprite.scale = Vector2.ONE * 0.25
+	sprite.scale = Vector2.ONE * 0.3
 	sprite.modulate = color
 
 	var collision_shape = CollisionShape2D.new()
 	var rect = RectangleShape2D.new()
-	rect.size = Vector2(8, 8)
+	rect.size = Vector2(10, 10)
 	collision_shape.shape = rect
 
 	body.add_child(sprite)
 	body.add_child(collision_shape)
+
+	body.linear_velocity = Player.instance.velocity
+	body.linear_velocity.x += randi_range(-300, 300)
 
 	return body
