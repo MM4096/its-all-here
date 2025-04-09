@@ -4,7 +4,7 @@
  <tileset firstgid="4" source="../tileset/appearing blocks.tsx"/>
  <tileset firstgid="40" source="../tileset/ground_tilemap.tsx"/>
  <tileset firstgid="184" source="../tileset/spikes.tsx"/>
- <layer id="42" name="death_alt" width="30" height="20" tintcolor="#7f0000">
+ <layer id="42" name="death_alt" width="30" height="20" visible="0" tintcolor="#7f0000">
   <data encoding="csv">
    <chunk x="336" y="-272" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1700,7 +1700,7 @@
 </chunk>
   </data>
  </layer>
- <layer id="39" name="solid_alt" width="30" height="20" tintcolor="#00ffff">
+ <layer id="39" name="solid_alt" width="30" height="20" visible="0" tintcolor="#00ffff">
   <data encoding="csv">
    <chunk x="336" y="-272" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -3900,7 +3900,7 @@
 </chunk>
   </data>
  </layer>
- <layer id="41" name="death" width="30" height="20">
+ <layer id="41" name="death" width="30" height="20" visible="0">
   <data encoding="csv">
    <chunk x="560" y="-448" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -7360,7 +7360,7 @@
 </chunk>
   </data>
  </layer>
- <layer id="1" name="solid" width="30" height="20">
+ <layer id="1" name="solid" width="30" height="20" visible="0">
   <data encoding="csv">
    <chunk x="432" y="-448" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
