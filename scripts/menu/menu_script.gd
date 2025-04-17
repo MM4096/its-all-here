@@ -21,11 +21,11 @@ func _refresh(body: Node) -> void:
 	load_game_block.set_collision_status(not SaveSystem.has_save())
 
 
-func _start_game(body: Node) -> void:
+func _start_game(_body: Node) -> void:
 	GameLoader.load_game()
 
-func give_hard_items(body: Node2D) -> void:
+func give_hard_items(_body: Node2D) -> void:
 	ItemHandler.instance.item_collected("hard-mode")
 
-func give_alt_items(body: Node2D) -> void:
+func give_alt_items(_body: Node2D) -> void:
 	ItemHandler.instance.item_collected("alt-map")

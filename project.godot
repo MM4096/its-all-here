@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="It's All Here"
-run/main_scene="res://main.tscn"
+run/main_scene="uid://pdyywmwm76j8"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]

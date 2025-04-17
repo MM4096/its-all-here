@@ -102,6 +102,9 @@ var is_in_death_scene: bool = false
 ## Number of deaths the player has sufferred
 var death_count: int = 0
 
+## Player movement locked?
+var lock_player_movement: bool = false
+
 func _init() -> void:
 	instance = self
 
@@ -109,7 +112,7 @@ func _ready() -> void:
 	respawn_location = self.global_position
 
 func _physics_process(delta: float) -> void:
-	if is_in_death_scene:
+	if is_in_death_scene or lock_player_movement:
 		return
 
 	use_fall_velocity_for_death_calculation = ItemHandler.instance.collected_items.has("hard-mode")
@@ -232,7 +235,7 @@ func do_death() -> void:
 
 ## Places a player at a position after enabling/disabling the collision shape as per [url=https://github.com/godotengine/godot/issues/83835]this issue[/url][br]
 ## If [param instant] is set to [code]false[/code], the player will get moved to the new position over the course of [param time] seconds.
-func set_player_position(location: Vector2, instant: bool = true, time: float = 0):
+func set_player_position(location: Vector2, _instant: bool = true, _time: float = 0):
 	collision_shape.set_deferred("disabled", true)
 	death_collision_shape.set_deferred("disabled", true)
 	await get_tree().physics_frame

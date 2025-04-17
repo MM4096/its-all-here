@@ -10,7 +10,7 @@ var cached_player_position: Vector2 = Vector2.ZERO
 var cached_start_y_position: float = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		is_paused = not is_paused
 
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		else:
 			resume()
 
-func _area_body_entered(body: Node2D, is_resume: bool) -> void:
+func _area_body_entered(_body: Node2D, is_resume: bool) -> void:
 	is_paused = false
 	if is_resume:
 		resume()

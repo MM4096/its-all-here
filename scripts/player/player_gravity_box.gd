@@ -9,9 +9,9 @@ func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
 
 
-func _on_body_entered(body: Node):
+func _on_body_entered(_body: Node):
 	if Player.instance.is_currently_floating:
 		return
-	
+
 	Player.instance.gravity_direction = -Player.instance.gravity_direction
 	Player.instance.is_currently_floating = true

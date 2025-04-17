@@ -85,7 +85,7 @@ func _teleport_player(object: Node2D, sender: WarpDoor) -> void:
 	in_door.require_refresh = true
 	out_door.require_refresh = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if cached_disable != disabled:
 		cached_disable = disabled
 

@@ -6,10 +6,10 @@
     "activeFile": "maps/map.tmx",
     "automapping.whileDrawing": false,
     "expandedProjectPaths": [
-        "tileset",
-        "automap",
         "maps",
-        "."
+        ".",
+        "tileset",
+        "automap"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -82,15 +82,15 @@
         },
         "maps/map.tmx": {
             "expandedGroupLayers": [
-                34,
                 7,
-                28
+                28,
+                34
             ],
-            "scale": 0.25,
-            "selectedLayer": 0,
+            "scale": 0.0625,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 17920,
-                "y": -8194
+                "x": -4392,
+                "y": -10680
             }
         },
         "maps/parallax_background.tmx": {
@@ -116,7 +116,7 @@
             "scaleInEditor": 1
         },
         "tileset/generic.tsx": {
-            "scaleInDock": 0.0625,
+            "scaleInDock": 0.33,
             "scaleInEditor": 1
         },
         "tileset/ground.tsx": {

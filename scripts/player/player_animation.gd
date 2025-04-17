@@ -8,7 +8,10 @@ var player_reference: Player
 func _ready() -> void:
 	player_reference = Player.instance
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if player_reference.lock_player_movement:
+		return
+
 	self.visible = not player_reference.is_in_death_scene
 
 	var player_velocity: Vector2 = player_reference.velocity

@@ -7,11 +7,16 @@ static var instance: MapHelper
 @export var map: Node2D
 @export var ground_layer_name: StringName
 @export var death_layer_name: StringName
+@export_group("Other")
+@export var alt_text_node: Node2D
 
 func _init() -> void:
 	instance = self
 
 func _ready() -> void:
+	alt_text_node.visible = false
+	for i in alt_text_node.get_children():
+		i.visible = false
 	for i in map.get_children():
 		if i is TileMapLayer:
 			if i.name.contains(ground_layer_name):
@@ -72,6 +77,10 @@ func set_current_enabled_cycle(cycle: int) -> void:
 
 ## Enable/disable the alternate blocks
 func set_alt_blocks_enabled(enable: bool = false) -> void:
+	alt_text_node.visible = enable
+	for i in alt_text_node.get_children():
+		i.visible = enable
+
 	for i in map.get_children(true):
 		if i.name.contains("_alt"):
 			if i is TileMapLayer:
