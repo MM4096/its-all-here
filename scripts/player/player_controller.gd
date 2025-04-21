@@ -4,6 +4,9 @@ extends CharacterBody2D
 
 static var instance: Player
 
+## Emitted when the player has just double jumped
+signal double_jumped
+
 @export_group("Movement")
 ## Fall speed, keep negative
 @export var gravity: float = -900
@@ -196,6 +199,7 @@ func _physics_process(delta: float) -> void:
 		_has_double_jumped = true
 		self.velocity.y = double_jump_velocity * gravity_direction
 		jump_start_y_position = self.global_position.y
+		double_jumped.emit()
 
 	if Input.is_action_just_pressed("move_up"):
 		cached_jump_timer = cached_jump_time

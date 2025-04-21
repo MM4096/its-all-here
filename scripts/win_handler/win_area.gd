@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 		temp_time = fmod(final_time, 3600)
 		var minutes: int = floori(temp_time / 60)
 		temp_time = fmod(temp_time, 60)
-		var seconds: float = roundi(temp_time * 1000.0) / 1000
+		var seconds: float = roundi(temp_time * 1000.0) / 1000.0
 
 		var time_display: String = "%sh,%smin,%ssec" % [hours, minutes, seconds]
 

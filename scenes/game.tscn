@@ -1,4 +1,4 @@
-[gd_scene load_steps=187 format=3 uid="uid://cb02yxiojlmjl"]
+[gd_scene load_steps=188 format=3 uid="uid://cb02yxiojlmjl"]
 
 [ext_resource type="Script" uid="uid://wjh0f8joydnc" path="res://scripts/menu/menu_script.gd" id="1_8pcci"]
 [ext_resource type="PackedScene" uid="uid://b8lhv6unruopp" path="res://scenes/game/menu_door.tscn" id="1_jawqs"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://dv15q5cqryba5" path="res://images/objects/collectables/key.png" id="23_1lq1j"]
 [ext_resource type="Script" uid="uid://2vkuu6pwla6g" path="res://scripts/win_handler/win_area.gd" id="28_yvygb"]
 [ext_resource type="Script" uid="uid://dd16g0q775ucy" path="res://scripts/helper/alt_warp_doors.gd" id="30_b1qrp"]
+[ext_resource type="Script" uid="uid://dt6fhd4e15k8k" path="res://scripts/objects/warp_door/warp_door.gd" id="30_nepv3"]
 [ext_resource type="Script" uid="uid://3t4nj2eeg4v0" path="res://scripts/win_handler/timer.gd" id="33_vl5ma"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h7q5d"]
@@ -4015,6 +4016,26 @@ debug_color_of_door = Color(0.485884, 0.418692, 0.213941, 0.5)
 
 [node name="Out" parent="warp doors/frag maze/WarpDoorManager31" instance=ExtResource("12_pux87")]
 position = Vector2(-31744, 11776)
+
+[node name="WarpDoorManager32" type="Node2D" parent="warp doors/frag maze" node_paths=PackedStringArray("in_door", "out_door")]
+position = Vector2(39520, -6208)
+script = ExtResource("11_suls4")
+in_door = NodePath("In")
+out_door = NodePath("Out")
+debug_color_of_door = Color(0.949743, 0.520285, 0.37161, 0.5)
+metadata/_custom_type_script = "uid://qhosvt3tme43"
+
+[node name="In" type="Area2D" parent="warp doors/frag maze/WarpDoorManager32" instance=ExtResource("12_pux87")]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("30_nepv3")
+
+[node name="Out" type="Area2D" parent="warp doors/frag maze/WarpDoorManager32" instance=ExtResource("12_pux87")]
+position = Vector2(-257, -960)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("30_nepv3")
+use_sprite = false
 
 [node name="to double jump" type="Node2D" parent="warp doors" node_paths=PackedStringArray("in_door", "out_door")]
 position = Vector2(35296, -2880)

@@ -2,11 +2,15 @@ class_name PlayerAnimation
 extends AnimatedSprite2D
 ## Class that handles player animation
 
+## Particle reference for double jumping
+@export var double_jump_particles: CPUParticles2D
+
 ## Reference to the [class Player]
 var player_reference: Player
 
 func _ready() -> void:
 	player_reference = Player.instance
+	player_reference.double_jumped.connect(_on_double_jump)
 
 func _process(_delta: float) -> void:
 	if player_reference.lock_player_movement:
@@ -30,3 +34,6 @@ func _process(_delta: float) -> void:
 		self.animation = "jump"
 	elif player_velocity.y > 50:
 		self.animation = "fall"
+
+func _on_double_jump():
+	double_jump_particles.emitting = true

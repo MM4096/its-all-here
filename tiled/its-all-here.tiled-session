@@ -7,8 +7,8 @@
     "automapping.whileDrawing": false,
     "expandedProjectPaths": [
         "maps",
-        ".",
         "tileset",
+        ".",
         "automap"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -82,15 +82,15 @@
         },
         "maps/map.tmx": {
             "expandedGroupLayers": [
-                7,
+                34,
                 28,
-                34
+                7
             ],
-            "scale": 0.0625,
-            "selectedLayer": 1,
+            "scale": 0.75,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": -4392,
-                "y": -10680
+                "x": 42947.33333333333,
+                "y": -1604.6666666666665
             }
         },
         "maps/parallax_background.tmx": {

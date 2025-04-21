@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bumlammd0u6dw"]
+[gd_scene load_steps=31 format=3 uid="uid://bumlammd0u6dw"]
 
 [ext_resource type="Script" uid="uid://hlhsgi3dghyl" path="res://scripts/player/player_controller.gd" id="1_j2oic"]
 [ext_resource type="Script" uid="uid://chmvc4k8wnok8" path="res://scripts/player/player_tracker.gd" id="2_41e2k"]
@@ -159,6 +159,11 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Curve" id="Curve_m5ugi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, -2.38542, 0, 0, Vector2(1, 0), -2.65449, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("death_box", "death_collision_shape", "collision_shape", "gravity_box", "tracker", "left_walljump_area", "right_walljump_area", "raycast_ground_left", "raycast_ground_right", "raycast_ground_up", "raycast_ground_down")]
 collision_layer = 2
 script = ExtResource("1_j2oic")
@@ -255,12 +260,33 @@ target_position = Vector2(64, 0)
 [node name="left" type="RayCast2D" parent="raycasts"]
 target_position = Vector2(-64, 0)
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("double_jump_particles")]
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_nrewp")
 animation = &"walk"
 autoplay = "walk"
 script = ExtResource("7_7ythd")
+double_jump_particles = NodePath("particles/double jump")
+
+[node name="particles" type="Node2D" parent="sprite"]
+scale = Vector2(0.125, 0.125)
+
+[node name="double jump" type="CPUParticles2D" parent="sprite/particles"]
+position = Vector2(0, 40)
+emitting = false
+amount = 100
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(32, 2)
+direction = Vector2(0, 1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_m5ugi")
 
 [node name="death particles" type="Node2D" parent="."]
 script = ExtResource("8_cw56r")
