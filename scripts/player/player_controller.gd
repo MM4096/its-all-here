@@ -87,7 +87,7 @@ var _has_double_jumped: bool = false
 ## Respawn location of the player
 static var respawn_location: Vector2 = Vector2.ZERO
 
-## If set to [code]true[/code], the player will withstand fall damage - once
+## Avoids fall damage ONCE
 var is_currently_floating: bool = false
 ## Gravity direction. [code]1[/code] is default; [code]-1[/code] is flipped
 var gravity_direction: int = 1

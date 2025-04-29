@@ -6,10 +6,10 @@
     "activeFile": "maps/map.tmx",
     "automapping.whileDrawing": false,
     "expandedProjectPaths": [
-        "maps",
-        "tileset",
+        "automap",
         ".",
-        "automap"
+        "maps",
+        "tileset"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -82,8 +82,8 @@
         },
         "maps/map.tmx": {
             "expandedGroupLayers": [
-                34,
                 28,
+                34,
                 7
             ],
             "scale": 0.75,
